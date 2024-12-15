@@ -1,0 +1,48 @@
+<section>
+    <div>
+        <div class="border shadow-lg">
+            <div class="modal-header bg-primary">
+                <h6 class="text-white">Listado de Detalles</h6>
+            </div>
+            <div class="modal-body">
+                <div class="dt-responsive">
+                    <div class="row">
+                        <div class="col-md-12 table-responsive">
+                            <table id="datatableDetalles" class="table table-bordered table-hover table-striped w-100">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center">CÓDIGO</th>
+                                        <th class="text-center">NOMBRE</th>
+                                        <th class="text-center">CANTIDAD</th>
+                                        <th class="text-center">PRECIO</th>
+                                        <th class="text-center">SUBTOTAL</th>
+                                        <th class="text-center">DESCUENTO</th>
+                                        <th class="text-center">IVA</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="text-center" *ngFor="let item of listFacturaDetalles(); index as i">
+                                        <td>{{ item.codigo }}</td>
+                                        <td>{{ item.producto }}</td>
+                                        <td>{{ item.cantidad }}</td>
+                                        <td>$ {{ this.helperService.formaterNumber(item.precioProducto) }}</td>
+                                        <td>$ {{ this.helperService.formaterNumber(item.subTotal) }}</td>
+                                        <td>$ {{ this.helperService.formaterNumber(item.descuento) }}</td>
+                                        <td>{{ item.iva }} %</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="row float-right">
+                    <div class="col-md-12">
+                        <app-botones [botones]="botones" (eventCancel)="cancel()"></app-botones>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,113 @@
+<app-breadcrumb [breadcrumb]="breadcrumb"></app-breadcrumb>
+<div class="card card-height-100">
+    <div class="card-header align-items-center d-flex">
+        <h4 class="card-title mb-0 flex-grow-1">{{ title }}</h4>
+        <div class="flex-shrink-0">
+            <app-botones [botones]="botones" (eventSave)="save()" (eventCancel)="cancel()"></app-botones>
+        </div>
+    </div>
+    <div class="card-body">
+        <form [formGroup]="frmFacturaCompra" class="mb-4">
+            <div class="row">
+                <div class="col-md-3 col-lg-3 col-sm-3 mb-4">
+                    <label>Proveedor</label>
+                    <ng-select [items]="listProveedores()" bindLabel="textoMostrar" bindValue="id"
+                        formControlName="ProveedorId">
+                    </ng-select>
+                    <app-forms-messages [error]="frmFacturaCompra.get('ProveedorId')" [statusForm]=statusForm>
+                    </app-forms-messages>
+                </div>
+                <div class="col-md-1 col-lg-1 col-sm-1">
+                    <br>
+                    <button type="button" class="btn" (click)="nuevoProveedor()"><i
+                            class="fa-duotone fa-user-plus"></i></button>
+                </div>
+                <div class="col-md-2 col-lg-2 col-sm-2" *ngIf="id">
+                    <label>Número de Factura</label>
+                    <input type="text" class="form-control" formControlName="NumeroFactura">
+                </div>
+                <div class="col-md-2 col-lg-2 col-sm-2">
+                    <label>Total</label>
+                    <input type="number" class="form-control" formControlName="Total">
+                    <app-forms-messages [error]="frmFacturaCompra.get('Total')" [statusForm]=statusForm>
+                    </app-forms-messages>
+                </div>
+                <div class="col-md-2 col-lg-2 col-sm-2">
+                    <label>Descuento</label>
+                    <input type="number" class="form-control" formControlName="Descuento">
+                    <app-forms-messages [error]="frmFacturaCompra.get('Descuento')" [statusForm]=statusForm>
+                    </app-forms-messages>
+                </div>
+                <div class="col-md-2 col-lg-2 col-sm-2">
+                    <label>Iva</label>
+                    <input type="number" class="form-control" formControlName="Iva">
+                    <app-forms-messages [error]="frmFacturaCompra.get('Iva')"
+                        [statusForm]=statusForm></app-forms-messages>
+                </div>
+                <div class="col-md-3 col-lg-3 col-sm-3" *ngIf="id">
+                    <label>Fecha</label>
+                    <input type="date" class="form-control" formControlName="Fecha">
+                    <app-forms-messages [error]="frmFacturaCompra.get('Fecha')" [statusForm]=statusForm>
+                    </app-forms-messages>
+                </div>
+                <div class="col-md-2 col-lg-2 col-sm-2">
+                    <label>Estado</label>
+                    <ng-select [items]="listEstados()" bindLabel="textoMostrar" bindValue="id"
+                        formControlName="EstadoId" (ngModelChange)="onSelectChangeEstado($event)">
+                    </ng-select>
+                    <app-forms-messages [error]="frmFacturaCompra.get('EstadoId')" [statusForm]=statusForm>
+                    </app-forms-messages>
+                </div>
+                <div class="col-md-2 col-lg-2 col-sm-2" *ngIf="Pagada">
+                    <label>Pago de caja</label><br>
+                    <ui-switch formControlName="PagoCaja"></ui-switch>
+                </div>
+                <div class="col-md-3 col-lg-3 col-sm-3" *ngIf="Pagada">
+                    <label>Medio de pago</label>
+                    <ng-select [items]="listMediosPagos()" bindLabel="textoMostrar" bindValue="id"
+                        formControlName="MedioPagoId">
+                    </ng-select>
+                    <app-forms-messages [error]="frmFacturaCompra.get('MedioPagoId')"
+                        [statusForm]=statusForm></app-forms-messages>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="card-footer" *ngIf="id">
+        <ul ngbNav #nav="ngbNav" [destroyOnHide]="true" class="nav-tabs">
+            <li ngbNavItem>
+                <a ngbNavLink>Detalles
+                    <span data-bs-toggle="tooltip" data-bs-placement="left"
+                        title="En este formulario se asocian los insumos a la factura de compra">
+                        <i class="fa-solid fa-circle-question"></i>
+                    </span>
+                </a>
+                <ng-template ngbNavContent>
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <app-facturas-compras-detalles [FacturaCompraId]="id"></app-facturas-compras-detalles>
+                        </div>
+                    </div>
+                </ng-template>
+            </li>
+            <li ngbNavItem>
+                <a ngbNavLink>Detalles de Pagos
+                    <span data-bs-toggle="tooltip" data-bs-placement="left"
+                        title="En este formulario se asocian los detalles de pago pertenecientes al la factura de compra">
+                        <i class="fa-solid fa-circle-question"></i>
+                    </span>
+                </a>
+                <ng-template ngbNavContent>
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <app-facturas-compras-detalles-pagos [FacturaCompraId]="id">
+                            </app-facturas-compras-detalles-pagos>
+                        </div>
+                    </div>
+                </ng-template>
+            </li>
+        </ul>
+        <div [ngbNavOutlet]="nav" class="mt-2"></div>
+    </div>
+</div>

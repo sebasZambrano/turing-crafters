@@ -1,0 +1,70 @@
+<app-breadcrumb [breadcrumb]="breadcrumb"></app-breadcrumb>
+<div class="card card-height-100">
+    <div class="card-header align-items-center d-flex">
+        <h4 class="card-title mb-0 flex-grow-1">{{ title }}</h4>
+        <div class="flex-shrink-0">
+            <app-botones [botones]="botones" (eventSave)="save()" (eventCancel)="cancel()"></app-botones>
+        </div>
+    </div>
+
+    <div class="card-body" style="padding: 40px; min-height: 387px!important;">
+        <form [formGroup]="frmCostos" class="mb-4">
+            <div class="row">
+                <div class="col-sm-3 col-md-3 col-lg-3">
+                    <label>Descripción</label>
+                    <input type="text" class="form-control" formControlName="Descripcion">
+                    <app-forms-messages [error]="frmCostos.get('Descripcion')" [statusForm]=statusForm
+                        [statusForm]=statusForm></app-forms-messages>
+                </div>
+                <div class="col-sm-3 col-md-3 col-lg-3">
+                    <label>Fecha</label>
+                    <input type="datetime-local" class="form-control" formControlName="FechaCosto">
+                    <app-forms-messages [error]="frmCostos.get('FechaCosto')" [statusForm]=statusForm
+                        [statusForm]=statusForm></app-forms-messages>
+                </div>
+                <div class="col-sm-3 col-md-3 col-lg-3">
+                    <label>Valor</label>
+                    <input type="number" class="form-control" formControlName="Valor">
+                    <app-forms-messages [error]="frmCostos.get('Valor')" [statusForm]=statusForm
+                        [statusForm]=statusForm></app-forms-messages>
+                </div>
+                <div class="col-sm-3 col-md-3 col-lg-3">
+                    <label>Numero de Factura</label>
+                    <input type="text" class="form-control" formControlName="NumeroFactura">
+                    <app-forms-messages [error]="frmCostos.get('NumeroFactura')" [statusForm]=statusForm
+                        [statusForm]=statusForm></app-forms-messages>
+                </div>
+            </div>
+            <br>
+            <br>
+            <div class="row">
+                <div class="col-sm-3 col-md-3 col-lg-3">
+                    <label>Tipo de Costo</label>
+                    <ng-select [items]="listTiposCostos()" bindLabel="textoMostrar" bindValue="id"
+                        formControlName="TipoCostoId">
+                    </ng-select>
+                    <app-forms-messages [error]="frmCostos.get('TipoCostoId')"
+                        [statusForm]=statusForm></app-forms-messages>
+                </div>
+                <div class="col-sm-3 col-md-3 col-lg-3">
+                    <label>Proveedor</label>
+                    <ng-select [items]="listProveedores()" bindLabel="textoMostrar" bindValue="id"
+                        formControlName="ProveedorId">
+                    </ng-select>
+                    <app-forms-messages [error]="frmCostos.get('ProveedorId')"
+                        [statusForm]=statusForm></app-forms-messages>
+                </div>
+                <div class="col-sm-2 col-md-2 col-lg-2">
+                    <label>Pago de Caja</label><br>
+                    <ui-switch formControlName="PagoCaja"></ui-switch>
+                </div>
+                <div class="col-sm-3 col-md-3 col-lg-3">
+                    <label>Activo</label><br>
+                    <ui-switch formControlName="Activo"></ui-switch>
+                </div>
+            </div>
+            <br>
+            
+        </form>
+    </div>
+</div>

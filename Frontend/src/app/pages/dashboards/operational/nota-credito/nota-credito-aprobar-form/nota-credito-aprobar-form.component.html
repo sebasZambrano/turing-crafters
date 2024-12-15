@@ -1,0 +1,111 @@
+<app-breadcrumb [breadcrumb]="breadcrumb"></app-breadcrumb>
+<div class="card card-height-100">
+    <div class="card-header align-items-center d-flex">
+        <h4 class="card-title mb-0 flex-grow-1">{{ title }}</h4>
+        <div class="flex-shrink-0">
+            <app-botones [botones]="botones" (eventAprovar)="aprobar()" (eventRechazar)="rechazar()"
+                (eventCancel)="cancel()"></app-botones>
+        </div>
+    </div>
+
+    <div class="card-body" style="padding: 40px; min-height: 387px!important;">
+        <form [formGroup]="frmNotaCredito" class="mb-4">
+            <span class="badge "
+                [ngClass]="{'badge-warning': estado == 'GENERADA', 'badge-success': estado == 'APROBADA', 'badge-danger': estado == 'RECHAZADA'}">
+                {{ estado }}</span>
+            <br>
+            <div class="d-flex justify-content-between">
+                <div>
+                    <h5 class="text-secondary font-weight-bold">Total a descontar: $ {{
+                        this.helperService.formaterNumber(subTotal) }}</h5>
+                </div>
+                <div *ngIf="completo">
+                    <label class="mr-2">Seleccionar todo</label>
+                    <ui-switch formControlName="MetodoCredito" (change)="onChangeReembolso($event)"></ui-switch>
+                </div>
+            </div>
+            <br>
+            <div *ngIf="!completo" class="text-end">
+                <h5 class="badge bg-secondary">Productos devueltos</h5>
+            </div>
+            <div class="d-flex justify-content-center align-content-center align-items-center">
+                <div class="w-100">
+                    <table class="table table-bordered table-hover table-striped w-100"
+                        style="font-size:11px!important;">
+                        <thead>
+                            <tr class="text-center">
+                                <th width="100px">CÓDIGO</th>
+                                <th width="200px">PRODUCTO</th>
+                                <th width="40px">CANTIDAD</th>
+                                <th width="100px">PRECIO</th>
+                                <th width="100px">SUB TOTAL</th>
+                                <th width="100px" *ngIf="completo">DEVOLVER</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="text-center" *ngFor="let item of listNotasCreditosDetalles(); index as i">
+                                <td width="100px" [ngClass]="{'bg-secondary': item.activo == false}">{{
+                                    item.codigo }}</td>
+                                <td width="170px" [ngClass]="{'bg-secondary': item.activo == false}">{{
+                                    item.producto }}</td>
+                                <td width="35px" [ngClass]="{'bg-secondary': item.activo == false}">{{
+                                    item.cantidad }}</td>
+                                <td width="100px" [ngClass]="{'bg-secondary': item.activo == false}">$ {{
+                                    this.helperService.formaterNumber(item.precioProducto) }}</td>
+                                <td width="100px" [ngClass]="{'bg-secondary': item.activo == false}">$ {{
+                                    this.helperService.formaterNumber(item.subTotal) }}</td>
+                                <td width="100px" *ngIf="completo">
+                                    <input type="checkbox" [checked]="item.select" [disabled]="!item.activo"
+                                        (change)="onChangeDevolver($event, i)">
+                                </td>
+                            </tr>
+                            <tr class="text-center" *ngIf="listNotasCreditosDetalles().length == 0">
+                                <td colspan="7">Ningún dato disponible en esta tabla</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-sm-4 col-md-4 col-lg-4">
+                    <label>Motivo</label>
+                    <ng-select [items]="listMotivos()" [readonly]="!completo" bindLabel="textoMostrar" bindValue="id"
+                        formControlName="MotivoId" (change)="onChangeMotivo($event)">
+                    </ng-select>
+                    <app-forms-messages [error]="frmNotaCredito.get('MotivoId')"
+                        [statusForm]=statusForm></app-forms-messages>
+                </div>
+                <div class="col-md-3 col-lg-3 col-sm-3">
+                    <label>Medio de pago</label>
+                    <ng-select [items]="listMediosPagos()" [readonly]="!completo" bindLabel="textoMostrar"
+                        bindValue="id" formControlName="MedioPagoId">
+                    </ng-select>
+                    <app-forms-messages [error]="frmNotaCredito.get('MedioPagoId')"
+                        [statusForm]=statusForm></app-forms-messages>
+                </div>
+                <div class="col-md-2 col-lg-2 col-sm-2">
+                    <label>Pago de caja</label><br>
+                    <ui-switch formControlName="PagoCaja" [disabled]="!completo"></ui-switch>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-12" *ngIf="motivo">
+                    <br>
+                    <i class="fa-duotone fa-square-info text-secondary mr-2"></i>
+                    <p class="text-secondary d-inline">{{ infoMotivo }}</p>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-12">
+                    <label>Concepto *</label>
+                    <textarea class="form-control" [readonly]="!completo" rows="4" formControlName="Concepto"
+                        placeholder="Descripción detallada de la razón por la cual se emite la nota de crédito"></textarea>
+                    <app-forms-messages [error]="frmNotaCredito.get('Concepto')"
+                        [statusForm]=statusForm></app-forms-messages>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,119 @@
+<app-breadcrumb [breadcrumb]="breadcrumb"></app-breadcrumb>
+<div class="card card-height-100">
+    <div class="card-header align-items-center d-flex">
+        <h4 class="card-title mb-0 flex-grow-1">{{ title }}</h4>
+        <div class="flex-shrink-0">
+            <app-botones [botones]="botones" (eventSave)="save()" (eventCancel)="cancel()"></app-botones>
+        </div>
+    </div>
+
+    <div class="card-body" style="padding: 40px; min-height: 387px!important;">
+        <form [formGroup]="frmProductos" class="mb-4">
+            <div class="row">
+                <div class="col-sm-3 col-md-3 col-lg-3 d-none">
+                    <label>Código</label>
+                    <input type="text" class="form-control" formControlName="Codigo">
+                    <app-forms-messages [error]="frmProductos.get('Codigo')" [statusForm]=statusForm
+                        [statusForm]=statusForm></app-forms-messages>
+                </div>
+                <div class="col-sm-3 col-md-3 col-lg-3">
+                    <label>Categoria</label>
+                    <ng-select [items]="listCategorias()" bindLabel="textoMostrar" bindValue="id"
+                        formControlName="CategoriaId">
+                    </ng-select>
+                    <app-forms-messages [error]="frmProductos.get('CategoriaId')"
+                        [statusForm]=statusForm></app-forms-messages>
+                </div>
+                <div class="col-sm-3 col-md-3 col-lg-3">
+                    <label>Nombre</label>
+                    <input type="text" class="form-control" formControlName="Nombre">
+                    <app-forms-messages [error]="frmProductos.get('Nombre')" [statusForm]=statusForm
+                        [statusForm]=statusForm></app-forms-messages>
+                </div>
+                <div class="col-sm-3 col-md-3 col-lg-3">
+                    <label>Descripción Corta</label>
+                    <input type="text" class="form-control" formControlName="DescripcionCorta">
+                    <app-forms-messages [error]="frmProductos.get('DescripcionCorta')" [statusForm]=statusForm
+                        [statusForm]=statusForm></app-forms-messages>
+                </div>
+                <div class="col-sm-3 col-md-3 col-lg-3">
+                    <label>Imagen</label><br>
+                    <img [src]="img" width="100%" height="240" class="border rounded">
+                    <br>
+                    <br>
+                    <input type="file" class="form-control" (change)="fileEvent($event)">
+                </div>
+            </div>
+            <br>
+            <div class="row" style="margin-top: -260px!important">
+                <div class="col-sm-2 col-md-2 col-lg-2">
+                    <label>Precio</label>
+                    <input type="number" class="form-control" formControlName="Precio">
+                    <app-forms-messages [error]="frmProductos.get('Precio')" [statusForm]=statusForm
+                        [statusForm]=statusForm></app-forms-messages>
+                </div>
+                <div class="col-sm-2 col-md-2 col-lg-2">
+                    <label>Precio de Costo</label>
+                    <input type="number" class="form-control" formControlName="PrecioCosto">
+                    <app-forms-messages [error]="frmProductos.get('PrecioCosto')" [statusForm]=statusForm
+                        [statusForm]=statusForm></app-forms-messages>
+                </div>
+                <div class="col-sm-2 col-md-2 col-lg-2">
+                    <label>Descuento</label>&nbsp;<span class="badge badge-secondary">$</span>
+                    <input type="number" class="form-control" formControlName="Descuento">
+                </div>
+                <div class="col-sm-2 col-md-2 col-lg-2">
+                    <label>Iva</label>&nbsp; <span class="badge badge-secondary">%</span>
+                    <input type="number" class="form-control" formControlName="Iva">
+                </div>
+                <div class="col-sm-1 col-md-1 col-lg-1">
+                    <label>Insumo</label><br>
+                    <ui-switch formControlName="Insumo"></ui-switch>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-sm-9 col-md-9 col-lg-9">
+                    <label>Descripción Larga</label>
+                    <textarea class="form-control" formControlName="DescripcionLarga"></textarea>
+                    <app-forms-messages [error]="frmProductos.get('DescripcionLarga')" [statusForm]=statusForm
+                        [statusForm]=statusForm></app-forms-messages>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-sm-1 col-md-1 col-lg-1">
+                    <label>Activo</label><br>
+                    <ui-switch formControlName="Activo"></ui-switch>
+                </div>
+            </div>
+            <br>
+            <div class="row d-none">
+                <div class="col-md-3">
+                    <label>Empleado</label>
+                    <input type="number" class="form-control" formControlName="EmpleadoId">
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="card-footer" *ngIf="id">
+        <ul ngbNav #nav="ngbNav" [destroyOnHide]="false" class="nav-tabs">
+            <li ngbNavItem>
+                <a ngbNavLink>Insumos
+                    <span data-bs-toggle="tooltip" data-bs-placement="left"
+                        title="En este formulario se asocian los Insumos al producto">
+                        <i class="fa-solid fa-circle-question"></i>
+                    </span>
+                </a>
+                <ng-template ngbNavContent>
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <app-productos-insumos [ProductoId]="id"></app-productos-insumos>
+                        </div>
+                    </div>
+                </ng-template>
+            </li>
+        </ul>
+        <div [ngbNavOutlet]="nav" class="mt-2"></div>
+    </div>
+</div>

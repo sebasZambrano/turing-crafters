@@ -1,0 +1,186 @@
+<div appScrollspy [spiedTags]="['SECTION']" (sectionChange)="onSectionChange($event)">
+	<!-- Begin page -->
+	<div class="layout-wrapper landing">
+		<nav class="navbar navbar-expand-lg navbar-landing fixed-top job-navbar" id="navbar"
+			(window:scroll)="windowScroll()">
+			<div class="container-fluid custom-container">
+				<a class="navbar-brand" routerLink="">
+					<img src="assets/images/logo-dark.png" class="card-logo card-logo-dark" alt="logo dark"
+						height="70" />
+					<img src="assets/images/logo-light.png" class="card-logo card-logo-light" alt="logo light"
+						height="70" />
+				</a>
+				<button class="navbar-toggler py-0 fs-20 text-body" type="button" data-bs-toggle="collapse"
+					data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+					aria-expanded="false" aria-label="Toggle navigation" (click)="collapse.toggle()">
+					<i class="mdi mdi-menu"></i>
+				</button>
+
+				<div #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed" class="collapse navbar-collapse"
+					id="navbarSupportedContent">
+					<ul class="navbar-nav mx-auto mt-2 mt-lg-0" id="navbar-example">
+						<li class="nav-item">
+							<a class="nav-link active" href="javascript:void(0);"
+								[ngClass]="{ active: currentSection === 'hero' }" [ngxScrollTo]="'#hero'">Inicio</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="javascript:void(0);"
+								[ngClass]="{ active: currentSection === 'services' }"
+								[ngxScrollTo]="'#services'">Servicios</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="javascript:void(0);"
+								[ngClass]="{ active: currentSection === 'features' }"
+								[ngxScrollTo]="'#features'">Nosotros</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="academia"
+								[ngClass]="{ active: currentSection === 'academy' }"
+								[ngxScrollTo]="'#academy'">Academia</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="inscripcion"
+								[ngClass]="{ active: currentSection === 'inscripcion' }"
+								[ngxScrollTo]="'#inscripcion'">Inscríbete</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="certificados"
+								[ngClass]="{ active: currentSection === 'certificados' }"
+								[ngxScrollTo]="'#certificados'">Certificados</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="javascript:void(0);"
+								[ngClass]="{ active: currentSection === 'contact' }"
+								[ngxScrollTo]="'#contact'">Contacto</a>
+						</li>
+					</ul>
+					<div class="">
+						<a routerLink="auth/signin/cover" target="_blank" class="btn btn-soft-primary"><i
+								class="ri-user-3-line align-bottom me-1"></i> Iniciar sesión</a>
+					</div>
+				</div>
+			</div>
+		</nav>
+		<!-- end navbar -->
+
+		<!-- start hero section -->
+		<section class="section job-hero-section bg-light pb-0" id="hero">
+			<div class="container">
+				<div class="row justify-content-between align-items-center">
+					<div class="col-lg-6">
+						<div>
+							<h1 class="display-6 fw-semibold mb-3 lh-base">Su aliado estratégico en
+								gestión de riesgos laborales.</h1>
+							<p class="lead text-muted lh-base mb-4">Brindamos cobertura a nivel nacional en la
+								prestación de servicios de prevención y promoción en seguridad y salud en el trabajo;
+								nuestro equipo de profesionales especializados posee experiencia en el campo académico y
+								laboral como formadores y consultores en diferentes áreas del conocimiento.</p>
+
+							<ul class="treding-keywords list-inline mb-0 mt-3 fs-13">
+								<li class="list-inline-item text-success fw-semibold">
+									<i class="fa-duotone fa-heart"></i> Valores corporativos:
+								</li>
+								<li class="list-inline-item text-muted">Respeto,</li>
+								<li class="list-inline-item text-muted">Honestidad,</li>
+								<li class="list-inline-item text-muted">Responsabilidad con el Cliente,</li>
+								<li class="list-inline-item text-muted">Servicio,</li>
+								<li class="list-inline-item text-muted">Trabajo en Equipo,</li>
+								<li class="list-inline-item text-muted">Calidad,</li>
+								<li class="list-inline-item text-muted">Experticia</li>
+							</ul>
+						</div>
+					</div>
+					<!--end col-->
+					<div class="col-lg-4">
+						<div class="position-relative home-img text-center mt-5 mt-lg-0">
+							<div class="card p-3 rounded shadow-lg inquiry-box">
+								<div class="d-flex align-items-center">
+									<div class="avatar-sm flex-shrink-0 me-3">
+										<div class="avatar-title bg-warning-subtle text-warning rounded fs-18">
+											<i class="fa-duotone fa-user-helmet-safety"></i>
+										</div>
+									</div>
+									<h5 class="fs-15 lh-base mb-0">Consultores en seguridad, salud y riesgos laborales
+									</h5>
+								</div>
+							</div>
+
+							<div class="card p-3 rounded shadow-lg application-box">
+								<h5 class="fs-15 lh-base mb-3">Inscripciones</h5>
+								<div class="avatar-group">
+									<a href="javascript: void(0);" class="avatar-group-item" data-bs-toggle="tooltip"
+										data-bs-trigger="hover" data-bs-placement="top" ngbTooltip="Jhon Corredor">
+										<div class="avatar-xs">
+											<div class="avatar-title rounded-circle bg-warning">J</div>
+										</div>
+									</a>
+									<a href="javascript: void(0);" class="avatar-group-item" data-bs-toggle="tooltip"
+										data-bs-trigger="hover" data-bs-placement="top" ngbTooltip="Sebastian Zambrano">
+										<div class="avatar-xs">
+											<div class="avatar-title rounded-circle bg-danger">S</div>
+										</div>
+									</a>
+									<a href="javascript: void(0);" class="avatar-group-item" data-bs-toggle="tooltip"
+										data-bs-trigger="hover" data-bs-placement="top" ngbTooltip="Julieth Polanco">
+										<div class="avatar-xs">
+											<div class="avatar-title rounded-circle bg-info">J</div>
+										</div>
+									</a>
+									<a href="javascript: void(0);" class="avatar-group-item" data-bs-toggle="tooltip"
+										data-bs-trigger="hover" data-bs-placement="top" ngbTooltip="Aldemar">
+										<div class="avatar-xs">
+											<div class="avatar-title rounded-circle bg-success">A</div>
+										</div>
+									</a>
+									<a href="javascript: void(0);" class="avatar-group-item" data-bs-toggle="tooltip"
+										data-bs-trigger="hover" data-bs-placement="top" title="Nicolas Vanegas">
+										<div class="avatar-xs">
+											<div class="avatar-title rounded-circle bg-primary">N</div>
+										</div>
+									</a>
+									<a href="javascript: void(0);" class="avatar-group-item" data-bs-toggle="tooltip"
+										data-bs-trigger="hover" data-bs-placement="top" title="More Appliances">
+										<div class="avatar-xs">
+											<div
+												class="avatar-title fs-13 rounded-circle bg-light border-dashed border text-primary">
+												50+</div>
+										</div>
+									</a>
+								</div>
+							</div>
+							<img src="assets/images/job-profile2.png" alt="" class="user-img" />
+
+							<div class="circle-effect">
+								<div class="circle"></div>
+								<div class="circle2"></div>
+								<div class="circle3"></div>
+								<div class="circle4"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- end row -->
+			</div>
+			<!-- end container -->
+		</section>
+		<!-- end hero section -->
+
+		<!--Components Body-->
+		<app-services></app-services>
+		<app-collection></app-collection>
+		<app-academy></app-academy>
+		<app-contact></app-contact>
+		<app-blog></app-blog>
+		<br><br>
+		<app-client-logo></app-client-logo>
+		<br><br>
+		<app-job-footer></app-job-footer>
+
+		<!--start back-to-top-->
+		<button (click)="topFunction()" class="btn btn-primary btn-icon landing-back-top" id="back-to-top">
+			<i class="ri-arrow-up-line"></i>
+		</button>
+		<!--end back-to-top-->
+	</div>
+	<!-- end layout wrapper -->
+</div>

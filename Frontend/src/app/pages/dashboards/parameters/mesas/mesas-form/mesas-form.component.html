@@ -1,0 +1,71 @@
+<section>
+    <div>
+        <form [formGroup]="frmMesas" class="border shadow-lg">
+            <div class="modal-header bg-primary">
+                <h6 class="text-white">{{ titulo }}</h6>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-sm-2 col-md-2 col-lg-2">
+                        <label>Activo</label><br>
+                        <ui-switch formControlName="Activo"></ui-switch>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-sm-3 col-md-3 col-lg-3">
+                        <label>Código</label>
+                        <input type="text" class="form-control" formControlName="Codigo">
+                        <app-forms-messages [error]="frmMesas.get('Codigo')" [statusForm]=statusForm
+                            [statusForm]=statusForm></app-forms-messages>
+                    </div>
+                    <div class="col-sm-3 col-md-3 col-lg-3">
+                        <label>Nombre</label>
+                        <input type="text" class="form-control" formControlName="Nombre">
+                        <app-forms-messages [error]="frmMesas.get('Nombre')" [statusForm]=statusForm
+                            [statusForm]=statusForm></app-forms-messages>
+                    </div>
+                    <div class="col-sm-3 col-md-3 col-lg-3">
+                        <label>Cupo</label>
+                        <input type="number" class="form-control" formControlName="Cupo">
+                        <app-forms-messages [error]="frmMesas.get('Cupo')" [statusForm]=statusForm
+                            [statusForm]=statusForm></app-forms-messages>
+                    </div>
+                    <div class="col-sm-3 col-md-3 col-lg-3">
+                        <label>Salón</label>
+                        <ng-select [items]="listaSalones()" bindLabel="textoMostrar" bindValue="id"
+                            formControlName="SalonId">
+                        </ng-select>
+                        <app-forms-messages [error]="frmMesas.get('SalonId')" [statusForm]=statusForm
+                            [statusForm]=statusForm></app-forms-messages>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-sm-3 col-md-3 col-lg-3" *ngIf="id">
+                        <label>Estado</label>
+                        <ng-select [items]="listaEstados()" bindLabel="textoMostrar" bindValue="id"
+                            formControlName="EstadoId">
+                        </ng-select>
+                        <app-forms-messages [error]="frmMesas.get('EstadoId')" [statusForm]=statusForm
+                            [statusForm]=statusForm></app-forms-messages>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-12">
+                        <label>Descripción</label>
+                        <textarea class="form-control" rows="4" formControlName="Descripcion"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="row float-right">
+                    <div class="col-md-12">
+                        <app-botones [botones]="botones" (eventSave)="save()" (eventCancel)="cancel()"></app-botones>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>

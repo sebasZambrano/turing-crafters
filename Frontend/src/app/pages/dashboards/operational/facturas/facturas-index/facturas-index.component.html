@@ -1,0 +1,43 @@
+<app-breadcrumb [breadcrumb]="breadcrumb"></app-breadcrumb>
+<div class="card card-height-100">
+  <div class="card-header align-items-center d-flex">
+    <h4 class="card-title mb-0 flex-grow-1">{{ title }}</h4>
+    <div class="flex-shrink-0">
+      <app-botones #botonesSuperior [botones]="botones" [dropdown]="false" (eventNew)="nuevo()"></app-botones>
+    </div>
+  </div>
+  <div class="card-body" style="padding: 40px;">
+    <form [formGroup]="frmFacturas" class="mt-1">
+      <label>Filtros de busqueda:</label>
+      <div class="row">
+        <div class="col-sm-4 col-md-4 col-lg-4">
+          <label>Fecha Inicio:</label>
+          <input type="datetime-local" class="form-control" formControlName="FechaInicio">
+          <app-forms-messages [error]="frmFacturas.get('FechaInicio')" [statusForm]="statusForm"></app-forms-messages>
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4">
+          <label>Fecha Fin:</label>
+          <input type="datetime-local" class="form-control" formControlName="FechaFin">
+          <app-forms-messages [error]="frmFacturas.get('FechaFin')" [statusForm]="statusForm"></app-forms-messages>
+        </div>
+        <div class="col-sm-1 col-md-1 col-lg-1">
+          <br>
+          <div class="d-flex">
+            <button type="button" title="Buscar" class="btn" (click)="buscar()">
+              <i class="fa-duotone fa-magnifying-glass"></i>
+            </button>
+            <button type="button" title="Buscar" class="btn" (click)="limpiar()">
+              <i class="fa-duotone fa-broom-wide"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+    <br>
+    <br>
+    <div class="table-responsive table-card">
+      <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger"
+        class="table table-bordered table-hover table-striped w-100"></table>
+    </div>
+  </div>
+</div>

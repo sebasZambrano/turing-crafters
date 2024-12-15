@@ -1,0 +1,103 @@
+<app-breadcrumb [breadcrumb]="breadcrumb"></app-breadcrumb>
+<div class="card card-height-100">
+    <div class="card-header align-items-center d-flex">
+        <h4 class="card-title mb-0 flex-grow-1">{{ title }}</h4>
+        <div class="flex-shrink-0">
+            <!-- <app-botones #botonesSuperior [botones]="botones" [dropdown]="false" (eventNew)="nuevo()"></app-botones> -->
+        </div>
+    </div>
+    <div class="card-body" style="min-height: 440px!important;">
+        <div class="d-flex justify-content-between align-content-center align-items-center">
+            <div class="w-75">
+                <div class="d-flex align-content-center align-items-center">
+
+                    <div class="mr-1">
+                        <button type="button" class="btn text-secondary" (click)="scannerOnClick()" *ngIf="!scanner">
+                            <i class="fa-duotone fa-scanner-gun"></i>
+                        </button>
+                        <button type="button" class="btn text-secondary" (click)="keyboardOnClick()" *ngIf="scanner">
+                            <i class="fa-duotone fa-keyboard"></i>
+                        </button>
+                    </div>
+
+                    <div class="ng-autocomplete w-50 mr-2" *ngIf="!scanner">
+                        <ng-autocomplete #auto [data]="listProductos()" [searchKeyword]="keyword"
+                            placeholder="Nombre del producto" (selected)='selectEvent($event)'
+                            (inputFocused)='onFocused()' (inputCleared)="inputCleared()" [itemTemplate]="itemTemplate"
+                            [notFoundTemplate]="notFoundTemplate" [minQueryLength]="3" [isLoading]="isLoading"
+                            notFoundText="No se encontraron productos"></ng-autocomplete>
+
+                        <ng-template #itemTemplate let-item>
+                            <a [innerHTML]="item.name"></a>
+                        </ng-template>
+
+                        <ng-template #notFoundTemplate let-notFound>
+                            <div [innerHTML]="notFound"></div>
+                        </ng-template>
+                    </div>
+
+                    <div class="w-50 mr-2" *ngIf="scanner">
+                        <input type="text" class="form-control" placeholder="Código del producto" #inputScanner
+                            (change)="onChangeScanner($event)">
+                    </div>
+
+                    <div class="w-50">
+                        <button class="btn btn-outline-secondary mx-1 my-1" type="button" (click)="agregar(false)"
+                            *ngIf="!scanner">Agregar</button>
+                        <button class="btn btn-outline-secondary mx-1 my-1" type="button"
+                            (click)="limpiar()">Limpiar</button>
+                        <button class="btn btn-outline-secondary mx-1 my-1" type="button"
+                            (click)="onClickfacturar()">Facturar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="pr-2">
+                <h5 class="text-secondary font-weight-bold">Sub Total: $ {{
+                    this.helperService.formaterNumber(subTotal) }}</h5>
+            </div>
+        </div>
+        <br>
+        <div class="d-flex justify-content-center align-content-center align-items-center">
+            <div class="w-100">
+                <table class="table table-bordered table-hover table-striped w-100" style="font-size:11px!important;">
+                    <thead>
+                        <tr class="text-center">
+                            <th width="100px">CÓDIGO</th>
+                            <th width="200px">NOMBRE</th>
+                            <th width="40px">CANTIDAD</th>
+                            <th width="100px">PRECIO</th>
+                            <th width="100px">SUB TOTAL</th>
+                            <th width="40px">BODEGAS</th>
+                            <th width="40px">ELIMINAR</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="text-center" *ngFor="let item of detallesFacturas(); index as i">
+                            <td width="100px">{{ item.codigo }}</td>
+                            <td width="170px">{{ item.producto }}</td>
+                            <td width="35px"><input type="number" min="1" class="form-control text-center"
+                                    value="{{ item.cantidad }}" (change)="changeCantidad($event, i)"></td>
+                            <td width="100px">$ {{ this.helperService.formaterNumber(item.precio) }}</td>
+                            <td width="100px">$ {{ this.helperService.formaterNumber(item.subTotal) }}</td>
+                            <td width="40px">
+                                <button class="btn mx-1"
+                                    [ngClass]="{'text-warning': item.alerta == true, 'text-secondary': item.alerta == false}"
+                                    type="button" (click)="bodegas(i)"><i
+                                        class="fa-duotone fa-boxes-packing"></i></button>
+                            </td>
+                            <td width="40px">
+                                <button class="btn mx-1 text-secondary" type="button" (click)="delete(i)"><i
+                                        class="fa-duotone fa-delete-left"></i></button>
+                            </td>
+                        </tr>
+                        <tr class="text-center" *ngIf="detallesFacturas().length == 0">
+                            <td colspan="7">Ningún dato disponible en esta tabla</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="card card-outline card-primary elevation-2" style="min-height: 440px!important;">
+    </div> -->
+</div>

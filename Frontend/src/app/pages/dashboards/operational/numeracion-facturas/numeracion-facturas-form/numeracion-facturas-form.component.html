@@ -1,0 +1,71 @@
+<app-breadcrumb [breadcrumb]="breadcrumb"></app-breadcrumb>
+<div class="card card-height-100">
+  <div class="card-header align-items-center d-flex">
+    <h4 class="card-title mb-0 flex-grow-1">{{ title }}</h4>
+    <div class="flex-shrink-0">
+      <app-botones [botones]="botones" (eventSave)="save()" (eventCancel)="cancel()"></app-botones>
+    </div>
+  </div>
+
+  <div class="card-body" style="padding: 40px; min-height: 387px!important;">
+    <form [formGroup]="frmNumeracion" class="mb-4">
+      <div class="row">
+        <div class="col-sm-2 col-md-2 col-lg-2" *ngIf="id">
+          <label>Activo</label><br>
+          <ui-switch formControlName="Activo"></ui-switch>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-sm-2 col-md-2 col-lg-2">
+          <label>Código</label>
+          <ng-select [items]="listaCodigo" bindLabel="nombre" bindValue="nombre" formControlName="Codigo">
+          </ng-select>
+        </div>
+        <div class="col-sm-2 col-md-2 col-lg-2">
+          <label>Nombre</label>
+          <input type="text" class="form-control" formControlName="Nombre" />
+          <app-forms-messages [error]="frmNumeracion.get('Nombre')" [statusForm]="statusForm"
+            [statusForm]="statusForm"></app-forms-messages>
+        </div>
+        <div class="col-sm-2 col-md-2 col-lg-2">
+          <label>Prefijo</label>
+          <input type="text" class="form-control" formControlName="Prefijo" />
+          <app-forms-messages [error]="frmNumeracion.get('Prefijo')" [statusForm]="statusForm"
+            [statusForm]="statusForm"></app-forms-messages>
+        </div>
+        <div class="col-sm-2 col-md-2 col-lg-2">
+          <label>Resolución</label>
+          <input type="number" class="form-control" formControlName="Resolucion" />
+          <app-forms-messages [error]="frmNumeracion.get('Resolucion')" [statusForm]="statusForm"
+            [statusForm]="statusForm"></app-forms-messages>
+        </div>
+        <div class="col-sm-2 col-md-2 col-lg-2">
+          <label>Num. Inicial</label>
+          <input type="number" class="form-control" formControlName="NumInicial" />
+          <app-forms-messages [error]="frmNumeracion.get('NumInicial')" [statusForm]="statusForm"
+            [statusForm]="statusForm"></app-forms-messages>
+        </div>
+        <div class="col-sm-2 col-md-2 col-lg-2">
+          <label>Num. Final</label>
+          <input type="number" class="form-control" formControlName="NumFinal" />
+          <app-forms-messages [error]="frmNumeracion.get('NumFinal')" [statusForm]="statusForm"
+            [statusForm]="statusForm"></app-forms-messages>
+        </div>
+      </div>
+      <br />
+      <div class="row">
+        <div class="col-sm-2 col-md-2 col-lg-2">
+          <label>Num. Actual</label>
+          <input type="number" class="form-control" formControlName="NumActual" />
+          <app-forms-messages [error]="frmNumeracion.get('NumActual')" [statusForm]="statusForm"
+            [statusForm]="statusForm"></app-forms-messages>
+        </div>
+        <div class="col-sm-10 col-md-10 col-lg-10">
+          <label>Autorización</label>
+          <textarea rows="4" class="form-control" formControlName="Autorizacion"></textarea>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

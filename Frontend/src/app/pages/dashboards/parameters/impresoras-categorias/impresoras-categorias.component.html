@@ -1,0 +1,39 @@
+<form [formGroup]="frmImpresorasCategorias" class="my-3">
+    <div class="row">
+        <div class="col-sm-3 col-md-3 col-lg-3">
+            <label>Categoría</label>
+            <ng-select [items]="listCategorias()" bindLabel="textoMostrar" bindValue="id" formControlName="CategoriaId">
+            </ng-select>
+            <app-forms-messages [error]="frmImpresorasCategorias.get('CategoriaId')"
+                [statusForm]=statusForm></app-forms-messages>
+        </div>
+        <div class="col-sm-3 col-md-3 col-lg-3">
+            <label>Salón</label>
+            <ng-select [items]="listSalones()" bindLabel="textoMostrar" bindValue="id" formControlName="SalonId">
+            </ng-select>
+            <app-forms-messages [error]="frmImpresorasCategorias.get('SalonId')"
+                [statusForm]=statusForm></app-forms-messages>
+        </div>
+        <div class="col-sm-3 col-md-3 col-lg-3">
+            <label>Activo</label><br>
+            <ui-switch formControlName="Activo"></ui-switch>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-md-12 text-end">
+            <app-botones [botones]="botones" (eventSave)="save()"></app-botones>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <div class="dt-responsive">
+        <div class="row">
+            <div class="col-md-12 table-responsive">
+                <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger"
+                    class="table table-bordered table-hover table-striped w-100"></table>
+            </div>
+        </div>
+    </div>
+</form>

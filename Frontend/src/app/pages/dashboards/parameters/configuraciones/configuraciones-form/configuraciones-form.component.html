@@ -1,0 +1,101 @@
+<app-breadcrumb [breadcrumb]="breadcrumb"></app-breadcrumb>
+<div class="card card-height-100">
+    <div class="card-header align-items-center d-flex">
+        <h4 class="card-title mb-0 flex-grow-1">{{ title }}</h4>
+        <div class="flex-shrink-0">
+            <app-botones [botones]="botones" (eventSave)="save()"></app-botones>
+        </div>
+    </div>
+
+    <div class="card-body" style="padding: 40px; min-height: 387px!important;">
+        <form [formGroup]="frmConfiguracion" class="mb-4">
+            <div ngbAccordion [closeOthers]="true">
+                <div ngbAccordionItem [collapsed]="false">
+                    <h2 ngbAccordionHeader>
+                        <button ngbAccordionButton><i class="fa-duotone fa-print"
+                                style="--fa-primary-color: #adb5bd; --fa-secondary-color: #adb5bd;"></i>&nbsp;
+                            Impresión</button>
+                    </h2>
+                    <div ngbAccordionCollapse>
+                        <div ngbAccordionBody>
+                            <div class="row">
+                                <div class="cols-sm-2 col-md-2 col-lg-2">
+                                    <label>Imprime Factura:</label><br>
+                                    <ui-switch formControlName="ImprimeFactura"></ui-switch>
+                                    <app-forms-messages [error]="frmConfiguracion.get('ImprimeFactura')"
+                                        [statusForm]="statusForm" [statusForm]="statusForm"></app-forms-messages>
+                                </div>
+                                <div class="cols-sm-2 col-md-2 col-lg-2">
+                                    <label>Maneja Remisión:</label><br>
+                                    <ui-switch formControlName="ManejaRemision"></ui-switch>
+                                    <app-forms-messages [error]="frmConfiguracion.get('ManejaRemision')"
+                                        [statusForm]="statusForm" [statusForm]="statusForm"></app-forms-messages>
+                                </div>
+                                <div class="cols-sm-2 col-md-2 col-lg-2">
+                                    <label>Cantidad de Facturas:</label>
+                                    <input type="number" class="form-control" formControlName="CantidadFactura" />
+                                    <app-forms-messages [error]="frmConfiguracion.get('CantidadFactura')"
+                                        [statusForm]="statusForm" [statusForm]="statusForm"></app-forms-messages>
+                                </div>
+                                <div class="cols-sm-2 col-md-2 col-lg-2">
+                                    <label>Tamaño de Impresion:</label>
+                                    <ng-select [items]="listaTamano" bindLabel="valor" bindValue="valor"
+                                        formControlName="TamañoImpresion">
+                                    </ng-select>
+                                    <app-forms-messages [error]="frmConfiguracion.get('TamañoImpresion')"
+                                        [statusForm]="statusForm" [statusForm]="statusForm"></app-forms-messages>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div ngbAccordionItem>
+                    <h2 ngbAccordionHeader>
+                        <button ngbAccordionButton>
+                            <i class="fa-duotone fa-boxes-stacked"
+                                style="--fa-primary-color: #adb5bd; --fa-secondary-color: #adb5bd;"></i>&nbsp;
+                            Inventario
+                        </button>
+                    </h2>
+                    <div ngbAccordionCollapse>
+                        <div ngbAccordionBody>
+                            <div class="row">
+                                <div class="cols-sm-2 col-md-2 col-lg-2">
+                                    <label>Maneja Inventario:</label><br>
+                                    <ui-switch formControlName="ManejaInventario"></ui-switch>
+                                    <app-forms-messages [error]="frmConfiguracion.get('ManejaInventario')"
+                                        [statusForm]="statusForm" [statusForm]="statusForm"></app-forms-messages>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div ngbAccordionItem>
+                    <h2 ngbAccordionHeader>
+                        <button ngbAccordionButton><i class="fa-duotone fa-lock"
+                                style="--fa-primary-color: #adb5bd; --fa-secondary-color: #adb5bd;"></i>&nbsp;
+                            Seguridad</button>
+                    </h2>
+                    <div ngbAccordionCollapse>
+                        <div ngbAccordionBody>
+                            <div class="row">
+                                <div class="cols-sm-2 col-md-2 col-lg-2">
+                                    <label>Maneja Clave Supervisor:</label><br>
+                                    <ui-switch formControlName="ManejaClaveSupervisor"></ui-switch>
+                                    <app-forms-messages [error]="frmConfiguracion.get('ManejaClaveSupervisor')"
+                                        [statusForm]="statusForm" [statusForm]="statusForm"></app-forms-messages>
+                                </div>
+                                <div class="cols-sm-2 col-md-2 col-lg-2">
+                                    <label>Clave Supervisor:</label>
+                                    <input type="number" class="form-control" formControlName="ClaveSupervisor" />
+                                    <app-forms-messages [error]="frmConfiguracion.get('ClaveSupervisor')"
+                                        [statusForm]="statusForm" [statusForm]="statusForm"></app-forms-messages>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

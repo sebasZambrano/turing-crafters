@@ -1,0 +1,75 @@
+<form [formGroup]="frmFacturasComprasDetallesPagos" class="my-3">
+    <div class="row">
+        <div class="col-sm-3 col-md-3 col-lg-3">
+            <label>Valor</label>
+            <input type="number" class="form-control" formControlName="Valor">
+            <app-forms-messages [error]="frmFacturasComprasDetallesPagos.get('Valor')"
+                [statusForm]=statusForm></app-forms-messages>
+        </div>
+        <div class="col-sm-3 col-md-3 col-lg-3">
+            <label>Medio de Pago</label>
+            <ng-select [items]="listMediosPagos()" bindLabel="textoMostrar" bindValue="id"
+                formControlName="MedioPagoId">
+            </ng-select>
+            <app-forms-messages [error]="frmFacturasComprasDetallesPagos.get('MedioPagoId')"
+                [statusForm]=statusForm></app-forms-messages>
+        </div>
+        <div class="col-sm-2 col-md-2 col-lg-2">
+            <label>Pago de Caja</label><br>
+            <ui-switch formControlName="PagoCaja"></ui-switch>
+        </div>
+        <div class="col-sm-3 col-md-3 col-lg-3 text-right">
+            <br>
+            <h5>Saldo: $ {{ this.helperService.formaterNumber(Saldo) }}</h5>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-12">
+            <label>Observación</label>
+            <textarea rows="3" formControlName="Observacion" class="form-control"></textarea>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-md-12 text-end">
+            <app-botones [botones]="botones" (eventSave)="save()"></app-botones>
+        </div>
+    </div>
+    <br>
+    <br>
+    <div class="dt-responsive">
+        <div class="row">
+            <div class="col-md-12 table-responsive">
+                <table id="datatable" class="table table-bordered table-hover table-striped w-100">
+                    <thead>
+                        <tr>
+                            <th class="text-center">FECHA</th>
+                            <th class="text-center">VALOR</th>
+                            <th class="text-center">MEDIO DE PAGO</th>
+                            <th class="text-center">PAGO DE CAJA</th>
+                            <th class="text-center">EMPLEADO</th>
+                            <th class="text-center">OBSERVACION</th>
+                            <!-- <th class="text-center">ACCIONES</th> -->
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="text-center" *ngFor="let item of listFacturasComprasDetallesPagos(); index as i">
+                            <td>{{ item.createAt | date:'yyyy-MM-dd' }}</td>
+                            <td>$ {{ this.helperService.formaterNumber(item.valor) }}</td>
+                            <td>{{ item.medioPago }}</td>
+                            <td *ngIf="item.pagoCaja; else elseBlock"><label class='text-center text-success'>Si</label></td>
+                            <ng-template #elseBlock><td><label class='text-center badge badge-danger'>No</label></td></ng-template>
+                            <td>{{ item.empleado }}</td>
+                            <td>{{ item.observacion }}</td>
+                            <!-- <td>
+                                <button class="btn btn-sm text-secondary" type="button" (click)="updateFCDP(item)"><i
+                                        class="fa-duotone fa-pen-to-square"></i> Editar</button>
+                            </td> -->
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</form>

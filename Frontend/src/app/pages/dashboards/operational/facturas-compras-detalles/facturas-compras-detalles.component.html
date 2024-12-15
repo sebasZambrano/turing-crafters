@@ -1,0 +1,102 @@
+<form [formGroup]="frmFacturasComprasDetalles" class="my-3">
+    <div class="row">
+        <div class="col-sm-3 col-md-3 col-lg-3">
+            <label>Insumos</label>
+            <div class="ng-autocomplete w-100">
+                <ng-autocomplete #auto [data]="listInsumos()" [searchKeyword]="keyword" placeholder="Nombre del insumo"
+                    (selected)='selectEvent($event)' (inputFocused)='onFocused()' (inputCleared)="inputCleared()"
+                    [itemTemplate]="itemTemplate" [notFoundTemplate]="notFoundTemplate" [minQueryLength]="3"
+                    [isLoading]="isLoading" notFoundText="No se encontraron insumos">
+                </ng-autocomplete>
+
+                <ng-template #itemTemplate let-item>
+                    <a [innerHTML]="item.name"></a>
+                </ng-template>
+
+                <ng-template #notFoundTemplate let-notFound>
+                    <div [innerHTML]="notFound"></div>
+                </ng-template>
+            </div>
+            <app-forms-messages [error]="frmFacturasComprasDetalles.get('InsumoId')"
+                [statusForm]=statusForm></app-forms-messages>
+        </div>
+        <div class="col-sm-1 col-md-1 col-lg-1">
+            <label>Cantidad</label>
+            <input type="number" class="form-control" formControlName="Cantidad"
+            (blur)="calcularSubTotal()">
+            <app-forms-messages [error]="frmFacturasComprasDetalles.get('Cantidad')"
+                [statusForm]=statusForm></app-forms-messages>
+        </div>
+        <div class="col-sm-1 col-md-1 col-lg-1">
+            <label>Bodegas</label><br>
+            <button type="button" class="btn" (click)="bodegas()"><i class="fa-duotone fa-boxes-packing" style="--fa-primary-color: #adb5bd; --fa-secondary-color: #adb5bd;"></i></button>
+        </div>
+        <div class="col-sm-2 col-md-2 col-lg-2">
+            <label>Precio Costo</label>
+            <input type="number" class="form-control" formControlName="PrecioCosto"
+                (blur)="calcularSubTotal()">
+            <app-forms-messages [error]="frmFacturasComprasDetalles.get('PrecioCosto')"
+                [statusForm]=statusForm></app-forms-messages>
+        </div>
+        <div class="col-sm-2 col-md-2 col-lg-2">
+            <label>Descuento <span class="badge bg-secondary">Valor</span></label>
+            <input type="number" class="form-control" formControlName="Descuento">
+            <app-forms-messages [error]="frmFacturasComprasDetalles.get('Descuento')"
+                [statusForm]=statusForm></app-forms-messages>
+        </div>
+        <div class="col-sm-2 col-md-2 col-lg-2">
+            <label>Iva <span class="badge bg-secondary">Porcentaje</span></label>
+            <input type="number" class="form-control" formControlName="Iva">
+            <app-forms-messages [error]="frmFacturasComprasDetalles.get('Iva')"
+                [statusForm]=statusForm></app-forms-messages>
+        </div>
+        <div class="col-sm-1 col-md-1 col-lg-1">
+            <label>Sub Total</label><br>
+            $ {{ this.helperService.formaterNumber(frmFacturasComprasDetalles.controls['SubTotal'].value) }}
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-md-12 text-end">
+            <app-botones [botones]="botones" (eventSave)="save()"></app-botones>
+        </div>
+    </div>
+    <br>
+    <br>
+    <div class="dt-responsive">
+        <div class="row">
+            <div class="col-md-12 table-responsive">
+                <table id="datatable" class="table table-bordered table-hover table-striped w-100">
+                    <thead>
+                        <tr>
+                            <th class="text-center">INSUMO</th>
+                            <th class="text-center">CANTIDAD</th>
+                            <th class="text-center">PRECIO COSTO</th>
+                            <th class="text-center">DESCUENTO</th>
+                            <th class="text-center">IVA</th>
+                            <th class="text-center">SUBTOTAL</th>
+                            <th class="text-center">ACCIONES</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="text-center" *ngFor="let item of listFacturasComprasDetalles(); index as i">
+                            <td>{{ item.insumo }}</td>
+                            <td>{{ item.cantidad }}</td>
+                            <td>$ {{ this.helperService.formaterNumber(item.precioCosto) }}</td>
+                            <td>$ {{ this.helperService.formaterNumber(item.descuento) }}</td>
+                            <td>{{ item.iva }} %</td>
+                            <td>$ {{ this.helperService.formaterNumber(item.subTotal) }}</td>
+                            <td>
+                                <!-- <button class="btn btn-sm text-secondary" type="button" (click)="update(item)"><i
+                                        class="fa-duotone fa-pen-to-square"></i> Editar</button> -->
+                                <button class="btn btn-sm text-secondary" type="button"
+                                    (click)="deleteGeneric(item.id)"><i class="fa-duotone fa-trash-can"></i>
+                                    Eliminar</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</form>

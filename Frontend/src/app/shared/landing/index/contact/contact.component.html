@@ -1,0 +1,166 @@
+<!-- start contact -->
+<section class="section" id="contact">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="text-center mb-5">
+                    <h1 class="mb-3 ff-secondary fw-semibold lh-base">Contáctanos</h1>
+                    <p class="text-muted">¡Estamos aquí para asesorarte! Si tienes preguntas,
+                        comentarios o deseas más información de nuestros servicios, no dudes en ponerte en contacto con
+                        nosotros.<br>¡Tu seguridad y bienestar es nuestro compromiso!</p>
+                </div>
+            </div>
+        </div>
+        <!-- end row -->
+        <div class="row gy-4">
+            <div class="col-lg-12">
+                <div>
+                    <form [formGroup]="frmContact">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="mb-4">
+                                    <label for="name" class="form-label fs-13">Nombre</label>
+                                    <input type="text" class="form-control bg-light border-light" formControlName="Name"
+                                        placeholder="Tú Nombre*">
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="mb-4">
+                                    <label for="email" class="form-label fs-13">Correo electrónico</label>
+                                    <input type="email" formControlName="Email"
+                                        class="form-control bg-light border-light" placeholder="Tú Correo electrónico*">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="mb-4">
+                                    <label for="subject" class="form-label fs-13">Asunto</label>
+                                    <input type="text" class="form-control bg-light border-light"
+                                        formControlName="Subjet" placeholder="Tú Asunto.." />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="mb-3">
+                                    <label for="comments" class="form-label fs-13">Mensaje</label>
+                                    <textarea formControlName="Message" rows="3"
+                                        class="form-control bg-light border-light"
+                                        placeholder="Tú Mensaje..."></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="mb-4 form-check">
+                                    <input class="form-check-input" type="checkbox" id="flexCheckDefault"
+                                        formControlName="TratamientoDatos">
+                                    <label class="form-check-label form-label fs-13" for="flexCheckDefault">
+                                        <a href="pages/privacy-policy" target="_blank">He leído y acepto la autorización de tratamientos de datos personales según el
+                                            artículo 12 de la Ley 1581 del 2012</a>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 text-end">
+                                <div class="mb-4">
+                                    <button class="submitBnt btn btn-primary" (click)="SendEmail()">Enviar
+                                        Mensaje</button>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="row gy-4">
+            <div class="col-lg-5">
+                <div>
+                    <div class="mt-4">
+                        <img src="assets/images/logo-dark.png" class="card-logo card-logo-dark" alt="logo dark"
+                            height="60" />
+                        <img src="assets/images/logo-light.png" class="card-logo card-logo-light" alt="logo light"
+                            height="60" />
+                        <br>
+                        <h5 class="fs-13 text-muted text-uppercase">Sede Administrativa:</h5>
+                        <a target="_blank" class="ff-secondary fw-semibold"
+                            href="https://maps.app.goo.gl/v7wCDydsuPtaeXTC6">Cra.
+                            7B Bis #70-92, Santiago de Cali,<br> Valle del Cauca</a>
+                    </div>
+                    <div class="mt-4">
+                        <h5 class="fs-13 text-muted text-uppercase">Celular:</h5>
+                        <a class="ff-secondary fw-semibold" target="_blank" href="https://wa.me/573054455400"><i class="fa-brands fa-whatsapp"></i> +57 3054455400</a>
+                    </div>
+                    <div class="mt-4">
+                        <h5 class="fs-13 text-muted text-uppercase">Correo Electrónico:</h5>
+                        <a target="_blank"
+                            href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox?compose=GTvVlcSKjsvCJGTWgwlZrqszCXSqFbrhtlxRZQPJHbzpXrfzltckLpPVlqQZsSvkmQjDcQXBCMSWW"
+                            class="ff-secondary fw-semibold">hswrisk&#64;gmail.com</a><br>
+                    </div>
+                    <div class="mt-4">
+                        <h5 class="fs-13 text-muted text-uppercase">Horarios:</h5>
+                        <a class="ff-secondary fw-semibold" href="javascript: void(0);">08:00 a.m. - 05:30 p.m.</a>
+                    </div>
+                </div>
+            </div>
+            <!-- end col -->
+            <div class="col-lg-7">
+                <div class="mt-4">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d248.90806614315292!2d-76.48278373381959!3d3.463929099675355!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e30a7c0f365f201%3A0x910c33996595edbc!2sSAFETY%2C%20HEALTH%20AND%20WORK%20RISK%20CONSULTANTS%20SAS!5e0!3m2!1ses-419!2sco!4v1707841262806!5m2!1ses-419!2sco"
+                        width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <div class="row gy-4">
+            <div class="col-lg-7">
+                <div class="mt-4">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d418.6419519023845!2d-76.55253982638818!3d3.3950690596518096!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e30a353f9b6b46f%3A0x9c856d604c569215!2sAbc%20-%20Risk%20Training!5e0!3m2!1ses-419!2sco!4v1708443434568!5m2!1ses-419!2sco"
+                        width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+            <div class="col-lg-5">
+                <div>
+                    <div align="right" class="mt-4">
+                        <img src="assets/images/logo-abc-dark.png" class="card-logo card-logo-dark" alt="logo dark"
+                            height="55" />
+                        <img src="assets/images/logo-abc-light.png" class="card-logo card-logo-light" alt="logo light"
+                            height="55" />
+                        <br>
+                        <h5 class="fs-13 text-muted text-uppercase">Sede Operativa:
+                        </h5>
+                        <a target="_blank" class="ff-secondary fw-semibold"
+                            href="https://maps.app.goo.gl/SquiC7N52cygQRfk9">Carrera
+                            68 # 2 Bis 35, Santiago de Cali,<br>Valle del Cauca</a>
+                    </div>
+                    <div align="right" class="mt-4">
+                        <h5 class="fs-13 text-muted text-uppercase">Celular:</h5>
+                        <a class="ff-secondary fw-semibold" target="_blank" href="https://wa.me/573122164817"><i class="fa-brands fa-whatsapp"></i> +57 3122164817
+                        </a>
+                    </div>
+                    <div align="right" class="mt-4">
+                        <h5 class="fs-13 text-muted text-uppercase">Correo Electrónico:</h5>
+                        <a target="_blank"
+                            href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox?compose=CllgCJNrccMLBpPjDbfKxgPDPZmskjzdtHsgdtRjbRBgzJCgQBCrJTlrtQnQxGsJWdGJZvcMVsV"
+                            class="ff-secondary fw-semibold">abcrisktraining&#64;gmail.com</a>
+                    </div>
+                    <div align="right" class="mt-4">
+                        <h5 class="fs-13 text-muted text-uppercase">Horarios:</h5>
+                        <a class="ff-secondary fw-semibold" href="javascript: void(0);">08:00 a.m. - 05:30 p.m.</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end row -->
+    </div>
+    <!-- end container -->
+</section>
+<!-- end contact -->

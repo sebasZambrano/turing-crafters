@@ -1,0 +1,72 @@
+<form [formGroup]="frmInventariosDetalles" class="my-3">
+    <div class="row">
+        <div class="col-sm-3 col-md-3 col-lg-3">
+            <label>Activo</label><br>
+            <ui-switch formControlName="Activo"></ui-switch>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-sm-3 col-md-3 col-lg-3">
+            <label>Insumo</label>
+            <div class="ng-autocomplete w-100">
+                <ng-autocomplete #auto [data]="listInsumos()" [searchKeyword]="keyword" placeholder="Nombre del insumo"
+                    (selected)='selectEvent($event)' (inputFocused)='onFocused()' (inputCleared)="inputCleared()"
+                    [itemTemplate]="itemTemplate" [notFoundTemplate]="notFoundTemplate" [minQueryLength]="3"
+                    [isLoading]="isLoading" notFoundText="No se encontraron insumos">
+                </ng-autocomplete>
+
+                <ng-template #itemTemplate let-item>
+                    <a [innerHTML]="item.name"></a>
+                </ng-template>
+
+                <ng-template #notFoundTemplate let-notFound>
+                    <div [innerHTML]="notFound"></div>
+                </ng-template>
+            </div>
+            <app-forms-messages [error]="frmInventariosDetalles.get('InsumoId')"
+                [statusForm]=statusForm></app-forms-messages>
+        </div>
+        <div class="col-sm-3 col-md-3 col-lg-3">
+            <label>Precio de Costo</label>
+            <input type="number" class="form-control" formControlName="PrecioCosto">
+            <app-forms-messages [error]="frmInventariosDetalles.get('PrecioCosto')"
+                [statusForm]=statusForm></app-forms-messages>
+        </div>
+        <div class="col-sm-2 col-md-2 col-lg-2">
+            <label>Cantidad Total</label>
+            <input type="number" class="form-control" formControlName="CantidadTotal">
+            <app-forms-messages [error]="frmInventariosDetalles.get('CantidadTotal')"
+                [statusForm]=statusForm></app-forms-messages>
+        </div>
+        <div class="col-sm-2 col-md-2 col-lg-2">
+            <label>Cantidad Usada</label>
+            <input type="number" class="form-control" formControlName="CantidadUsada">
+            <app-forms-messages [error]="frmInventariosDetalles.get('CantidadUsada')"
+                [statusForm]=statusForm></app-forms-messages>
+        </div>
+        <div class="col-sm-2 col-md-2 col-lg-2">
+            <label>Cantidad Ingresada</label>
+            <input type="number" class="form-control" formControlName="CantidadIngresada">
+            <app-forms-messages [error]="frmInventariosDetalles.get('CantidadIngresada')"
+                [statusForm]=statusForm></app-forms-messages>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-md-12 text-end">
+            <app-botones [botones]="botones" (eventSave)="save()"></app-botones>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <div class="dt-responsive">
+        <div class="row">
+            <div class="col-md-12 table-responsive">
+                <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger"
+                    class="table table-bordered table-hover table-striped w-100"></table>
+            </div>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,45 @@
+<app-breadcrumb [breadcrumb]="breadcrumb"></app-breadcrumb>
+<div class="card card-height-100">
+    <div class="card-header align-items-center d-flex">
+        <h4 class="card-title mb-0 flex-grow-1">{{ title }}</h4>
+        <div class="flex-shrink-0">
+            <app-botones #botonesSuperior [botones]="botones" [dropdown]="false" (eventNew)="nuevo()"></app-botones>
+        </div>
+    </div>
+    <div class="card-body" style="padding: 40px;">
+        <div class="table-responsive table-card">
+            <table id="datatable" class="table table-bordered table-hover table-striped w-100">
+                <thead>
+                    <tr>
+                        <th class="text-center">EMPLEADO</th>
+                        <th class="text-center">FECHA INICAL</th>
+                        <th class="text-center">FECHA FINAL</th>
+                        <th class="text-center">BASE</th>
+                        <th class="text-center">TOTAL INGRESOS</th>
+                        <th class="text-center">TOTAL GASTOS</th>
+                        <th class="text-center">SALDO EMPLEADO</th>
+                        <th class="text-center">OBSERVACIONES</th>
+                        <th class="text-center">ACCIONES</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="text-center" *ngFor="let item of listCierres(); index as i">
+                        <td>{{ item.empleado }}</td>
+                        <td>{{ item.fechaInicial | date:'yyyy-MM-dd hh:mm:ss a' }}</td>
+                        <td>{{ item.fechaFinal | date:'yyyy-MM-dd hh:mm:ss a' }}</td>
+                        <td>$ {{ this.helperService.formaterNumber(item.base) }}</td>
+                        <td>$ {{ this.helperService.formaterNumber(item.totalIngreso) }}</td>
+                        <td>$ {{ this.helperService.formaterNumber(item.totalEgreso) }}</td>
+                        <td>$ {{ this.helperService.formaterNumber(item.saldoEmpleado) }}</td>
+                        <td>{{ item.observacion }}</td>
+                        <td>
+                            <button class="btn btn-sm text-secondary" type="button" (click)="imprimir(item.id)"><i
+                                    class="fa-duotone fa-print"></i>
+                                Imprimir</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

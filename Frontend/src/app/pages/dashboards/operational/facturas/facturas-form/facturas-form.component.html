@@ -1,0 +1,128 @@
+<section>
+  <div>
+    <form [formGroup]="frmFactura" class="border shadow-lg">
+      <div class="modal-header bg-primary">
+        <h6 class="text-white">Facturar</h6>
+      </div>
+      <div class="modal-body">
+        <div class="row border-bottom">
+          <div class="col-md-3">
+            <label>Convenio:</label>
+            <ng-select [items]="listConvenios()" bindLabel="name" bindValue="id" formControlName="ConvenioId"
+              (change)="onChangeConvenio($event)">
+            </ng-select>
+          </div>
+          <div class="col-md-3">
+            <label>Impuestos (%):</label>
+            <input type="number" min="0" max="100" class="form-control" formControlName="Iva"
+              (change)="onChangeInpuesto($event)" />
+          </div>
+          <div class="col-md-3">
+            <label>Descuento (%):</label>
+            <input type="number" min="0" max="100" class="form-control" formControlName="Descuento"
+              (change)="onChangeDescuento($event)" />
+          </div>
+          <div class="col-md-3 mb-4">
+            <label>Descuento:</label>
+            <input type="number" class="form-control" min="0" max="{{ subTotal }}" formControlName="DescuentoValor"
+              (change)="onChangeDescuentoValor($event)" />
+          </div>
+        </div>
+        <br />
+        <div class="row border-bottom">
+          <div class="col-md-3">
+            <label>Sub Total: $
+              {{ this.helperService.formaterNumber(subTotal) }}</label>
+          </div>
+          <div class="col-md-3">
+            <label>Total: $ {{ this.helperService.formaterNumber(total) }}</label>
+          </div>
+          <div class="col-md-3">
+            <label>Saldo: $ {{ this.helperService.formaterNumber(saldo) }}</label>
+          </div>
+          <div class="col-md-3 mb-4">
+            <label *ngIf="cambio > 0">Cambio: $ {{ this.helperService.formaterNumber(cambio) }}</label>
+          </div>
+        </div>
+        <br />
+        <div class="row border-bottom">
+          <div class="col-md-3">
+            <label>Cliente:</label>
+            <ng-select [items]="listCliente()" bindLabel="name" bindValue="id" formControlName="ClienteId">
+            </ng-select>
+          </div>
+          <div class="col-md-1">
+            <br />
+            <button type="button" class="btn btn-outline-secondary" (click)="NuevoCliente()">
+              <i class="fa-duotone fa-user-plus"></i>
+            </button>
+          </div>
+          <div class="col-md-3">
+            <label>Medio de pago:</label>
+            <ng-select [items]="listMedioPago()" bindLabel="name" bindValue="id" formControlName="MedioPagoId">
+            </ng-select>
+          </div>
+          <div class="col-md-2">
+            <label>Valor:</label>
+            <input type="number" class="form-control" min="0" formControlName="Valor" />
+          </div>
+          <div class="col-md-2">
+            <label># Voucher:</label>
+            <input type="text" class="form-control" formControlName="Voucher" />
+          </div>
+          <div class="col-md-1 mb-4">
+            <br />
+            <button type="button" class="btn btn-outline-secondary" (click)="agregarDetallePago()">
+              <i class="fa-duotone fa-plus"></i>
+            </button>
+          </div>
+        </div>
+        <br />
+        <div class="row border-bottom" *ngIf="facturaDetallesPagos().length > 0">
+          <div class="col-md-12">
+            <table class="table table-bordered table-hover table-striped w-100" style="font-size: 11px !important">
+              <thead>
+                <tr class="text-center">
+                  <th>MEDIO DE PAGO</th>
+                  <th>VALOR</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="text-center" *ngFor="let item of facturaDetallesPagos(); index as i">
+                  <td>{{ item.medioPago }}</td>
+                  <td>$ {{ this.helperService.formaterNumber(item.valor) }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <br />
+        <div class="row border-bottom">
+          <div class="col-md-12 mb-4">
+            <textarea class="form-control" rows="3" placeholder="Observaciones"
+              formControlName="Observacion"></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <div class="row float-right">
+          <div class="col-md-12">
+            <button type="button" class="btn mx-2" [ngClass]="{
+              'btn-outline-secondary':
+                frmFactura.controls['Remision'].value == false,
+              'btn-secondary': frmFactura.controls['Remision'].value == true
+            }" (click)="changeRemision()">
+              Remisión
+            </button>
+            <button type="button" class="btn mx-2 btn-outline-secondary" (click)="facturar()">
+              <i class="fa-duotone fa-receipt"></i> Facturar
+            </button>
+            <button type="button" class="btn mx-2 btn-outline-secondary" (click)="cancel()">
+              Cancelar
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>

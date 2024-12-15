@@ -1,0 +1,38 @@
+.w-productos {
+    width: 61% !important;
+}
+
+.w-form {
+    width: 39% !important;
+}
+
+@media only screen and (max-width: 1145px) {
+
+    .w-productos {
+        width: 50% !important;
+    }
+
+
+    .w-form {
+        width: 50% !important;
+    }
+}
+
+@media only screen and (max-width: 945px) {
+
+    .w-productos,
+    .categorias,
+    .empleado {
+        display: none !important;
+    }
+
+    .w-form {
+        width: 100% !important;
+        font-size: 12px !important;
+    }
+
+    .w-form h6 {
+        font-size: 12px !important;
+    }
+
+}

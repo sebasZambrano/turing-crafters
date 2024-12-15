@@ -1,0 +1,85 @@
+<section>
+    <div>
+        <div class="border shadow-lg">
+            <div class="modal-header bg-primary">
+                <h6 class="text-white">Distribuir cantidades de bodega</h6>
+            </div>
+            <div class="modal-body">
+                {{ title }} {{ cantidadFacturar }}
+                <br>
+                <br>
+                <div class="dt-responsive">
+                    <div class="row">
+                        <div class="col-md-12 table-responsive">
+                            <table id="datatable" class="table table-bordered table-hover table-striped w-100">
+                                <thead>
+                                    <tr class="text-center">
+                                        <th width="200px" *ngIf="!facturaCompra && !inventarioDetalle">INSUMO</th>
+                                        <th width="200px">BODEGA</th>
+                                        <th width="100px" *ngIf="!facturaCompra">EXISTENCIAS</th>
+                                        <th width="35px">CANTIDAD</th>
+                                    </tr>
+                                </thead>
+                                <tbody *ngIf="!facturaCompra && !inventarioDetalle; else facturaCompraBlock">
+                                    <tr class="text-center"
+                                        *ngFor="let item of listdetallesInventariosBodegas(); index as i">
+                                        <td width="200px">{{ item.insumo }}</td>
+                                        <td width="200px">{{ item.bodega }}</td>
+                                        <td width="100px">{{ item.cantidad }}</td>
+                                        <td width="35px" *ngIf="item.cantidad > 0; else elseBlock">
+                                            <input type="number" min="0" max="{{ item.cantidad }}"
+                                                class="form-control text-center"
+                                                [ngClass]="{'text-warning': item.alerta == true}"
+                                                value="{{ item.cantidadFacturar }}"
+                                                (change)="changeCantidad($event, i)">
+                                        </td>
+                                        <ng-template #elseBlock>
+                                            <td>
+                                                <input type="number" class="form-control text-center" value="0"
+                                                    readonly>
+                                            </td>
+                                        </ng-template>
+                                    </tr>
+                                </tbody>
+                                <ng-template #facturaCompraBlock>
+                                    <tbody *ngIf="!inventarioDetalle; else inventarioDetalleBlock">
+                                        <tr class="text-center"
+                                            *ngFor="let item of listdetallesInventariosBodegas(); index as i">
+                                            <td width="200px">{{ item.bodega }}</td>
+                                            <td width="35px">
+                                                <input type="number" min="0" max="{{ item.cantidad }}"
+                                                    class="form-control text-center" value="{{ item.cantidadFacturar }}"
+                                                    (change)="changeCantidad($event, i)">
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </ng-template>
+                                <ng-template #inventarioDetalleBlock>
+                                    <tbody>
+                                        <tr class="text-center"
+                                            *ngFor="let item of listdetallesInventariosBodegas(); index as i">
+                                            <td width="200px">{{ item.bodega }}</td>
+                                            <td width="100px">{{ item.cantidad }}</td>
+                                            <td width="35px">
+                                                <input type="number" min="0" max="{{ cantidadFacturar }}"
+                                                    class="form-control text-center" value="{{ item.cantidadFacturar }}"
+                                                    (change)="changeCantidad($event, i)">
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </ng-template>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="row float-right">
+                    <div class="col-md-12">
+                        <app-botones [botones]="botones" (eventSave)="save()"></app-botones>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

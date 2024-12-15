@@ -1,0 +1,98 @@
+<section>
+    <div>
+        <form [formGroup]="frmTraslado" class="border shadow-lg">
+            <div class="modal-header bg-primary">
+                <h6 class="text-white">Traslado</h6>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-sm-6 col-md-6 col-lg-6">
+                        <label>Bodega Origen</label>
+                        <ng-select [items]="listBodegas()" (change)="onChangeBodega($event)" bindLabel="textoMostrar"
+                            bindValue="id" formControlName="BodegaId">
+                        </ng-select>
+                        <app-forms-messages [error]="frmTraslado.get('BodegaId')" [statusForm]=statusForm
+                            [statusForm]=statusForm></app-forms-messages>
+                    </div>
+                    <div class="col-sm-6 col-md-6 col-lg-6">
+                        <label>Bodega Destino</label>
+                        <ng-select [items]="listBodegasDestino()" bindLabel="textoMostrar" bindValue="id"
+                            formControlName="BodegaDestinoId">
+                        </ng-select>
+                        <app-forms-messages [error]="frmTraslado.get('BodegaDestinoId')" [statusForm]=statusForm
+                            [statusForm]=statusForm></app-forms-messages>
+                    </div>
+                </div>
+                <br>
+                <div class="row" *ngIf="bodega">
+                    <div class="col-sm-5 col-md-5 col-lg-5">
+                        <label>Insumo</label>
+                        <div class="ng-autocomplete w-100">
+                            <ng-autocomplete #auto [data]="listInventarioDetalle()" [searchKeyword]="keyword"
+                                placeholder="Nombre del insumo" (selected)='selectEvent($event)'
+                                (inputFocused)='onFocused()' (inputCleared)="inputCleared()"
+                                [itemTemplate]="itemTemplate" [notFoundTemplate]="notFoundTemplate" [minQueryLength]="3"
+                                [isLoading]="isLoading" notFoundText="No se encontraron insumos">
+                            </ng-autocomplete>
+
+                            <ng-template #itemTemplate let-item>
+                                <a [innerHTML]="item.name"></a>
+                            </ng-template>
+
+                            <ng-template #notFoundTemplate let-notFound>
+                                <div [innerHTML]="notFound"></div>
+                            </ng-template>
+                        </div>
+                        <app-forms-messages [error]="frmTraslado.get('InventarioDetalleId')"
+                            [statusForm]=statusForm></app-forms-messages>
+                    </div>
+                    <div class="col-sm-1 col-md-1 col-lg-1">
+                        <br>
+                        <button type="button" class="btn" (click)="agregar()"><i
+                                class="fa-duotone fa-plus"></i></button>
+                    </div>
+                </div>
+                <br>
+                <div class="row" *ngIf="trasladoBodega().length > 0">
+                    <div class="col-md-12">
+                        <table class="table table-bordered table-hover table-striped w-100"
+                            style="font-size: 11px !important">
+                            <thead>
+                                <tr class="text-center">
+                                    <th>BODEGA ORIGEN</th>
+                                    <th>BODEGA DESTINO</th>
+                                    <th>INSUMO</th>
+                                    <th width="40px">CANTIDAD</th>
+                                    <th width="40px">EXISTENCIAS</th>
+                                    <th width="40px">ELIMINAR</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="text-center" *ngFor="let item of trasladoBodega(); index as i">
+                                    <td>{{ item.Bodega }}</td>
+                                    <td>{{ item.BodegaDestino }}</td>
+                                    <td>{{ item.InventarioDetalle }}</td>
+                                    <td width="35px"><input type="number" min="1" max="{{ item.Existencias }}"
+                                            class="form-control text-center" value="{{ item.Cantidad }}"
+                                            (change)="changeCantidad($event, i)"></td>
+                                    <td width="40px">{{ item.Existencias }}</td>
+                                    <td width="40px">
+                                        <button class="btn btn-sm text-secondary" type="button" (click)="delete(i)"><i
+                                                class="fa-duotone fa-delete-left"></i></button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="row float-right">
+                    <div class="col-md-12">
+                        <app-botones [botones]="botones" (eventSave)="save()" (eventCancel)="cancel()"></app-botones>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>

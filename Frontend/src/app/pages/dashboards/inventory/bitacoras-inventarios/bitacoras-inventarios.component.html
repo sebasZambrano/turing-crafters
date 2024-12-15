@@ -1,0 +1,45 @@
+<section>
+    <div>
+        <div class="border shadow-lg">
+            <div class="modal-header bg-primary">
+                <h6 class="text-white">Listado de Movimientos</h6>
+            </div>
+            <div class="modal-body">
+                <div class="dt-responsive">
+                    <div class="row">
+                        <div class="col-md-12 table-responsive">
+                            <table id="datatableDetalles" class="table table-bordered table-hover table-striped w-100">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center">INSUMO</th>
+                                        <th class="text-center">CANTIDAD</th>
+                                        <th class="text-center">EMPLEADO</th>
+                                        <th class="text-center">FECHA</th>
+                                        <th width="150px" class="text-center">OBSERVACIÓN</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="text-center"
+                                        *ngFor="let item of listMovimientosInventarios(); index as i">
+                                        <td>{{ item.insumo }}</td>
+                                        <td>{{ item.cantidad }}</td>
+                                        <td>{{ item.empleado }}</td>
+                                        <td>{{ item.createAt | date:'yyyy-MM-dd' }}</td>
+                                        <td width="150px">{{ item.observacion }}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="row float-right">
+                    <div class="col-md-12">
+                        <app-botones [botones]="botones" (eventCancel)="cancel()"></app-botones>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

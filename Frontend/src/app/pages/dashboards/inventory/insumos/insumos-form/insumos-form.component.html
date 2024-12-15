@@ -1,0 +1,51 @@
+<app-breadcrumb [breadcrumb]="breadcrumb"></app-breadcrumb>
+<div class="card card-height-100">
+  <div class="card-header align-items-center d-flex">
+    <h4 class="card-title mb-0 flex-grow-1">{{ title }}</h4>
+    <div class="flex-shrink-0">
+      <app-botones [botones]="botones" (eventSave)="save()" (eventCancel)="cancel()"></app-botones>
+    </div>
+  </div>
+
+  <div class="card-body" style="padding: 40px; min-height: 387px!important;">
+                <form [formGroup]="frmInsumos" class="mb-4">
+                    <div class="row">
+                        <div class="col-sm-3 col-md-3 col-lg-3">
+                            <label>Código</label>
+                            <input type="text" class="form-control" formControlName="Codigo">
+                            <app-forms-messages [error]="frmInsumos.get('Codigo')" [statusForm]=statusForm
+                                [statusForm]=statusForm></app-forms-messages>
+                        </div>
+                        <div class="col-sm-3 col-md-3 col-lg-3">
+                            <label>Nombre</label>
+                            <input type="text" class="form-control" formControlName="Nombre">
+                            <app-forms-messages [error]="frmInsumos.get('Nombre')" [statusForm]=statusForm
+                                [statusForm]=statusForm></app-forms-messages>
+                        </div>
+                        <div class="col-sm-3 col-md-3 col-lg-3">
+                            <label>Descripción</label>
+                            <input type="text" class="form-control" formControlName="Descripcion">
+                            <app-forms-messages [error]="frmInsumos.get('Descripcion')" [statusForm]=statusForm
+                                [statusForm]=statusForm></app-forms-messages>
+                        </div>
+                        <div class="col-sm-3 col-md-3 col-lg-3">
+                            <label>Unidad de Medida</label>
+                            <ng-select [items]="listUnidadMedida()" bindLabel="textoMostrar" bindValue="id"
+                                formControlName="UnidadMedidaId">
+                            </ng-select>
+                            <app-forms-messages [error]="frmInsumos.get('UnidadMedidaId')"
+                                [statusForm]=statusForm></app-forms-messages>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-sm-3 col-md-3 col-lg-3">
+                            <label>Activo</label><br>
+                            <ui-switch formControlName="Activo"></ui-switch>
+                        </div>
+                    </div>
+                    <br>
+
+                </form>
+            </div>
+</div>

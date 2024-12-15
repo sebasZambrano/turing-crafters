@@ -1,0 +1,54 @@
+<app-breadcrumb [breadcrumb]="breadcrumb"></app-breadcrumb>
+<div class="card card-height-100">
+    <div class="card-header align-items-center d-flex">
+        <h4 class="card-title mb-0 flex-grow-1">{{ title }}</h4>
+        <div class="flex-shrink-0">
+            <app-botones [botones]="botones" (eventSave)="save()" (eventCancel)="cancel()"></app-botones>
+        </div>
+    </div>
+
+    <div class="card-body" style="padding: 40px; min-height: 387px!important;">
+        <form [formGroup]="frmBodegas" class="mb-4">
+            <div class="row">
+                <div class="col-sm-4 col-md-4 col-lg-4">
+                    <label>Código</label>
+                    <input type="text" class="form-control" formControlName="Codigo">
+                    <app-forms-messages [error]="frmBodegas.get('Codigo')" [statusForm]=statusForm
+                        [statusForm]=statusForm></app-forms-messages>
+                </div>
+                <div class="col-sm-4 col-md-4 col-lg-4">
+                    <label>Nombre</label>
+                    <input type="text" class="form-control" formControlName="Nombre">
+                    <app-forms-messages [error]="frmBodegas.get('Nombre')" [statusForm]=statusForm
+                        [statusForm]=statusForm></app-forms-messages>
+                </div>
+                <div class="col-sm-2 col-md-2 col-lg-2">
+                    <label>Activo</label><br>
+                    <ui-switch formControlName="Activo"></ui-switch>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="card-footer" *ngIf="id">
+        <ul ngbNav #nav="ngbNav" [destroyOnHide]="false" class="nav-tabs">
+            <li ngbNavItem>
+                <a ngbNavLink>Productos
+                    <span data-bs-toggle="tooltip" data-bs-placement="left"
+                        title="En este formulario se asocian los productos que estan en la bodega">
+                        <i class="fa-solid fa-circle-question"></i>
+                    </span>
+                </a>
+                <ng-template ngbNavContent>
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <app-detalles-inventarios-bodegas-form
+                                [BodegaId]="id"></app-detalles-inventarios-bodegas-form>
+                        </div>
+                    </div>
+                </ng-template>
+            </li>
+        </ul>
+        <div [ngbNavOutlet]="nav" class="mt-2"></div>
+    </div>
+</div>

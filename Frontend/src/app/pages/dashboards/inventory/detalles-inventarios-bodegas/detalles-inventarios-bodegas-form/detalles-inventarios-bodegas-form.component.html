@@ -1,0 +1,49 @@
+<form [formGroup]="frmDetalleInevntarioBodega" class="my-3">
+    <div class="row">
+        <div class="col-sm-3 col-md-3 col-lg-3">
+            <label>Insumo</label>
+            <div class="ng-autocomplete w-100">
+                <ng-autocomplete #auto [data]="listInventarioDetalle()" [searchKeyword]="keyword"
+                    placeholder="Nombre del insumo" (selected)='selectEvent($event)' (inputFocused)='onFocused()'
+                    (inputCleared)="inputCleared()" [itemTemplate]="itemTemplate" [notFoundTemplate]="notFoundTemplate"
+                    [minQueryLength]="3" [isLoading]="isLoading" notFoundText="No se encontraron insumos">
+                </ng-autocomplete>
+
+                <ng-template #itemTemplate let-item>
+                    <a [innerHTML]="item.name"></a>
+                </ng-template>
+
+                <ng-template #notFoundTemplate let-notFound>
+                    <div [innerHTML]="notFound"></div>
+                </ng-template>
+            </div>
+            <app-forms-messages [error]="frmDetalleInevntarioBodega.get('InventarioDetalleId')"
+                [statusForm]=statusForm></app-forms-messages>
+        </div>
+        <div class="col-sm-3 col-md-3 col-lg-3">
+            <label>Cantidad</label>
+            <input type="number" class="form-control" formControlName="Cantidad">
+            <app-forms-messages [error]="frmDetalleInevntarioBodega.get('Cantidad')"
+                [statusForm]=statusForm></app-forms-messages>
+        </div>
+        <div class="col-sm-3 col-md-3 col-lg-3">
+            <label>Activo</label><br>
+            <ui-switch formControlName="Activo"></ui-switch>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 text-end">
+            <app-botones [botones]="botones" (eventSave)="save()"></app-botones>
+        </div>
+    </div>
+    <br>
+    <br>
+    <div class="dt-responsive">
+        <div class="row">
+            <div class="col-md-12 table-responsive">
+                <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger"
+                    class="table table-bordered table-hover table-striped w-100"></table>
+            </div>
+        </div>
+    </div>
+</form>
