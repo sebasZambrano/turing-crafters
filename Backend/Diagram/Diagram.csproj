@@ -1,0 +1,294 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{55C0D820-97D7-4F4B-BD1E-519DB1D02529}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Diagram</RootNamespace>
+    <AssemblyName>Diagram</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Abono.cs">
+      <DependentUpon>dbSigecResto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Archivo.cs">
+      <DependentUpon>dbSigecResto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Banco.cs">
+      <DependentUpon>dbSigecResto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BitacorasFactura.cs">
+      <DependentUpon>dbSigecResto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BitacorasInventario.cs">
+      <DependentUpon>dbSigecResto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BitacorasInventariosBodega.cs">
+      <DependentUpon>dbSigecResto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Bodega.cs">
+      <DependentUpon>dbSigecResto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Caja.cs">
+      <DependentUpon>dbSigecResto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Cargo.cs">
+      <DependentUpon>dbSigecResto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Categoria.cs">
+      <DependentUpon>dbSigecResto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Cierre.cs">
+      <DependentUpon>dbSigecResto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CierresMediosPago.cs">
+      <DependentUpon>dbSigecResto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Ciudade.cs">
+      <DependentUpon>dbSigecResto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Cliente.cs">
+      <DependentUpon>dbSigecResto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configuracione.cs">
+      <DependentUpon>dbSigecResto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Convenio.cs">
+      <DependentUpon>dbSigecResto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Costo.cs">
+      <DependentUpon>dbSigecResto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Credito.cs">
+      <DependentUpon>dbSigecResto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C__EFMigrationsHistory.cs">
+      <DependentUpon>dbSigecResto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbSigecResto.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dbSigecResto.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbSigecResto.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dbSigecResto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="dbSigecResto.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dbSigecResto.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Departamento.cs">
+      <DependentUpon>dbSigecResto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DetallesInventariosBodega.cs">
+      <DependentUpon>dbSigecResto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Empleado.cs">
+      <DependentUpon>dbSigecResto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Empresa.cs">
+      <DependentUpon>dbSigecResto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Estado.cs">
+      <DependentUpon>dbSigecResto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Factura.cs">
+      <DependentUpon>dbSigecResto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FacturasCompra.cs">
+      <DependentUpon>dbSigecResto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FacturasComprasDetalle.cs">
+      <DependentUpon>dbSigecResto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FacturasComprasDetallesPago.cs">
+      <DependentUpon>dbSigecResto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FacturasConvenio.cs">
+      <DependentUpon>dbSigecResto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FacturasDetalle.cs">
+      <DependentUpon>dbSigecResto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FacturasDetallesPago.cs">
+      <DependentUpon>dbSigecResto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Formulario.cs">
+      <DependentUpon>dbSigecResto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FormulariosRole.cs">
+      <DependentUpon>dbSigecResto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Impresoras.cs">
+      <DependentUpon>dbSigecResto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ImpresorasCategorias.cs">
+      <DependentUpon>dbSigecResto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Insumo.cs">
+      <DependentUpon>dbSigecResto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InsumosProducto.cs">
+      <DependentUpon>dbSigecResto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InsumosProveedore.cs">
+      <DependentUpon>dbSigecResto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Inventario.cs">
+      <DependentUpon>dbSigecResto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InventariosDetalle.cs">
+      <DependentUpon>dbSigecResto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MacroCategoria.cs">
+      <DependentUpon>dbSigecResto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MediosPago.cs">
+      <DependentUpon>dbSigecResto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mesas.cs">
+      <DependentUpon>dbSigecResto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModificacionesProductos.cs">
+      <DependentUpon>dbSigecResto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modulo.cs">
+      <DependentUpon>dbSigecResto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Motivo.cs">
+      <DependentUpon>dbSigecResto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NotasCredito.cs">
+      <DependentUpon>dbSigecResto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NotasCreditosDetalle.cs">
+      <DependentUpon>dbSigecResto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Notificacione.cs">
+      <DependentUpon>dbSigecResto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NumeracionesFactura.cs">
+      <DependentUpon>dbSigecResto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Ordenes.cs">
+      <DependentUpon>dbSigecResto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OrdenesDetalles.cs">
+      <DependentUpon>dbSigecResto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Pais.cs">
+      <DependentUpon>dbSigecResto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Persona.cs">
+      <DependentUpon>dbSigecResto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Producto.cs">
+      <DependentUpon>dbSigecResto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Propinas.cs">
+      <DependentUpon>dbSigecResto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Proveedore.cs">
+      <DependentUpon>dbSigecResto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Role.cs">
+      <DependentUpon>dbSigecResto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Salones.cs">
+      <DependentUpon>dbSigecResto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TiposCosto.cs">
+      <DependentUpon>dbSigecResto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TiposEstado.cs">
+      <DependentUpon>dbSigecResto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UnidadesMedida.cs">
+      <DependentUpon>dbSigecResto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Usuario.cs">
+      <DependentUpon>dbSigecResto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UsuariosRole.cs">
+      <DependentUpon>dbSigecResto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Zonas.cs">
+      <DependentUpon>dbSigecResto.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="dbSigecResto.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>dbSigecResto.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <None Include="dbSigecResto.edmx.diagram">
+      <DependentUpon>dbSigecResto.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="dbSigecResto.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>dbSigecResto.Context.cs</LastGenOutput>
+      <DependentUpon>dbSigecResto.edmx</DependentUpon>
+    </Content>
+    <Content Include="dbSigecResto.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>dbSigecResto.edmx</DependentUpon>
+      <LastGenOutput>dbSigecResto.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

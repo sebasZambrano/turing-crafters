@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8368d537542c481a9b4cadb3e2cd5ab8" Name="Diagram1" ZoomLevel="116">
+        <EntityTypeShape EntityType="gcsofcom_sigec_restoModel.Abono" Width="1.5" PointX="69.25" PointY="29" IsExpanded="true" />
+        <EntityTypeShape EntityType="gcsofcom_sigec_restoModel.Archivo" Width="1.5" PointX="49.875" PointY="21.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="gcsofcom_sigec_restoModel.Banco" Width="1.5" PointX="60.125" PointY="25.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="gcsofcom_sigec_restoModel.BitacorasFactura" Width="1.75" PointX="65.625" PointY="42.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="gcsofcom_sigec_restoModel.BitacorasInventario" Width="1.5" PointX="50.25" PointY="34.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="gcsofcom_sigec_restoModel.BitacorasInventariosBodega" Width="1.5" PointX="58.5" PointY="38.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="gcsofcom_sigec_restoModel.Bodega" Width="1.5" PointX="55.625" PointY="40.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="gcsofcom_sigec_restoModel.Caja" Width="1.5" PointX="57.75" PointY="42.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="gcsofcom_sigec_restoModel.Cargo" Width="1.5" PointX="61.75" PointY="43.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="gcsofcom_sigec_restoModel.Categoria" Width="1.5" PointX="61" PointY="21.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="gcsofcom_sigec_restoModel.Cierre" Width="1.5" PointX="73.75" PointY="45.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="gcsofcom_sigec_restoModel.CierresMediosPago" Width="1.5" PointX="74" PointY="41" IsExpanded="true" />
+        <EntityTypeShape EntityType="gcsofcom_sigec_restoModel.Ciudade" Width="1.5" PointX="60.625" PointY="48.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="gcsofcom_sigec_restoModel.Cliente" Width="1.5" PointX="67.75" PointY="42.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="gcsofcom_sigec_restoModel.Configuracione" Width="1.5" PointX="51.875" PointY="21.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="gcsofcom_sigec_restoModel.Convenio" Width="1.5" PointX="70.125" PointY="42.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="gcsofcom_sigec_restoModel.Costo" Width="1.5" PointX="53.125" PointY="39.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="gcsofcom_sigec_restoModel.Credito" Width="1.5" PointX="65.875" PointY="29.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="gcsofcom_sigec_restoModel.Departamento" Width="1.5" PointX="58.125" PointY="48.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="gcsofcom_sigec_restoModel.DetallesInventariosBodega" Width="1.5" PointX="55.5" PointY="37" IsExpanded="true" />
+        <EntityTypeShape EntityType="gcsofcom_sigec_restoModel.Empleado" Width="1.5" PointX="63.75" PointY="41.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="gcsofcom_sigec_restoModel.Empresa" Width="1.5" PointX="60.875" PointY="37.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="gcsofcom_sigec_restoModel.Estado" Width="1.5" PointX="68.625" PointY="24.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="gcsofcom_sigec_restoModel.Factura" Width="1.5" PointX="66" PointY="33.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="gcsofcom_sigec_restoModel.FacturasCompra" Width="1.5" PointX="72.375" PointY="24.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="gcsofcom_sigec_restoModel.FacturasComprasDetalle" Width="1.5" PointX="74.125" PointY="28.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="gcsofcom_sigec_restoModel.FacturasComprasDetallesPago" Width="1.5" PointX="71.75" PointY="37.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="gcsofcom_sigec_restoModel.FacturasConvenio" Width="2" PointX="69.375" PointY="38.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="gcsofcom_sigec_restoModel.FacturasDetalle" Width="1.5" PointX="65.25" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="gcsofcom_sigec_restoModel.FacturasDetallesPago" Width="1.5" PointX="69.125" PointY="33.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="gcsofcom_sigec_restoModel.Formulario" Width="1.5" PointX="76.375" PointY="50" IsExpanded="true" />
+        <EntityTypeShape EntityType="gcsofcom_sigec_restoModel.FormulariosRole" Width="1.5" PointX="74.25" PointY="50.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="gcsofcom_sigec_restoModel.Insumo" Width="1.5" PointX="55.875" PointY="27.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="gcsofcom_sigec_restoModel.InsumosProducto" Width="1.5" PointX="56" PointY="22.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="gcsofcom_sigec_restoModel.InsumosProveedore" Width="1.5" PointX="58" PointY="27.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="gcsofcom_sigec_restoModel.Inventario" Width="1.5" PointX="52.625" PointY="34.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="gcsofcom_sigec_restoModel.InventariosDetalle" Width="1.5" PointX="55.5" PointY="32.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="gcsofcom_sigec_restoModel.MacroCategoria" Width="1.5" PointX="63.125" PointY="21.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="gcsofcom_sigec_restoModel.MediosPago" Width="1.5" PointX="72.125" PointY="32.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="gcsofcom_sigec_restoModel.Modulo" Width="1.5" PointX="78.375" PointY="50" IsExpanded="true" />
+        <EntityTypeShape EntityType="gcsofcom_sigec_restoModel.Motivo" Width="1.5" PointX="70.5" PointY="17.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="gcsofcom_sigec_restoModel.NotasCredito" Width="1.5" PointX="68.125" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="gcsofcom_sigec_restoModel.NotasCreditosDetalle" Width="1.5" PointX="65.125" PointY="16.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="gcsofcom_sigec_restoModel.Notificacione" Width="1.5" PointX="67.625" PointY="54.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="gcsofcom_sigec_restoModel.NumeracionesFactura" Width="1.5" PointX="62.75" PointY="34.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="gcsofcom_sigec_restoModel.Pais" Width="1.5" PointX="58.125" PointY="51.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="gcsofcom_sigec_restoModel.Persona" Width="1.5" PointX="64.25" PointY="48.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="gcsofcom_sigec_restoModel.Producto" Width="1.5" PointX="58.25" PointY="21.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="gcsofcom_sigec_restoModel.Proveedore" Width="1.5" PointX="62" PointY="27.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="gcsofcom_sigec_restoModel.Role" Width="1.5" PointX="72" PointY="50.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="gcsofcom_sigec_restoModel.TiposCosto" Width="1.5" PointX="51.125" PointY="41.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="gcsofcom_sigec_restoModel.TiposEstado" Width="1.5" PointX="70.875" PointY="21.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="gcsofcom_sigec_restoModel.UnidadesMedida" Width="1.5" PointX="53.75" PointY="25.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="gcsofcom_sigec_restoModel.Usuario" Width="1.5" PointX="67.75" PointY="50.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="gcsofcom_sigec_restoModel.UsuariosRole" Width="1.5" PointX="69.875" PointY="50.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="gcsofcom_sigec_restoModel.C__EFMigrationsHistory" Width="1.5" PointX="53.875" PointY="21.875" IsExpanded="true" />
+        <AssociationConnector Association="gcsofcom_sigec_restoModel.FK_Abonos_Creditos_CreditoId" ManuallyRouted="false" />
+        <AssociationConnector Association="gcsofcom_sigec_restoModel.FK_Abonos_MediosPagos_MedioPagoId" ManuallyRouted="false" />
+        <AssociationConnector Association="gcsofcom_sigec_restoModel.FK_Proveedores_Bancos_BancoId" ManuallyRouted="false" />
+        <AssociationConnector Association="gcsofcom_sigec_restoModel.FK_BitacorasFacturas_Empleados_EmpleadoId" ManuallyRouted="false" />
+        <AssociationConnector Association="gcsofcom_sigec_restoModel.FK_BitacorasFacturas_Facturas_FacturaId" ManuallyRouted="false" />
+        <AssociationConnector Association="gcsofcom_sigec_restoModel.FK_BitacorasInventarios_Empleados_EmpleadoId" ManuallyRouted="false" />
+        <AssociationConnector Association="gcsofcom_sigec_restoModel.FK_BitacorasInventarios_Insumos_InsumoId" ManuallyRouted="false" />
+        <AssociationConnector Association="gcsofcom_sigec_restoModel.FK_BitacorasInventariosBodegas_DetallesInventariosBodegas_DetalleInventarioBodegaId" ManuallyRouted="false" />
+        <AssociationConnector Association="gcsofcom_sigec_restoModel.FK_BitacorasInventariosBodegas_Empleados_EmpleadoId" ManuallyRouted="false" />
+        <AssociationConnector Association="gcsofcom_sigec_restoModel.FK_BitacorasInventariosBodegas_FacturasCompras_FacturaCompraId" ManuallyRouted="false" />
+        <AssociationConnector Association="gcsofcom_sigec_restoModel.FK_Cajas_Bodegas_BodegaId" ManuallyRouted="false" />
+        <AssociationConnector Association="gcsofcom_sigec_restoModel.FK_DetallesInventariosBodegas_Bodegas_BodegaId" ManuallyRouted="false" />
+        <AssociationConnector Association="gcsofcom_sigec_restoModel.FK_Costos_Cajas_CajaId" ManuallyRouted="false" />
+        <AssociationConnector Association="gcsofcom_sigec_restoModel.FK_Empleados_Cajas_CajaId" ManuallyRouted="false" />
+        <AssociationConnector Association="gcsofcom_sigec_restoModel.FK_Facturas_Cajas_CajaId" ManuallyRouted="false" />
+        <AssociationConnector Association="gcsofcom_sigec_restoModel.FK_Empleados_Cargos_CargoId" ManuallyRouted="false" />
+        <AssociationConnector Association="gcsofcom_sigec_restoModel.FK_Categorias_MacroCategorias_MacroCategoriaId" ManuallyRouted="false" />
+        <AssociationConnector Association="gcsofcom_sigec_restoModel.FK_Productos_Categorias_CategoriaId" ManuallyRouted="false" />
+        <AssociationConnector Association="gcsofcom_sigec_restoModel.FK_Cierres_Empleados_EmpleadoId" ManuallyRouted="false" />
+        <AssociationConnector Association="gcsofcom_sigec_restoModel.FK_CierresMediosPagos_Cierres_CierreId" ManuallyRouted="false" />
+        <AssociationConnector Association="gcsofcom_sigec_restoModel.FK_CierresMediosPagos_MediosPagos_MedioPagoId" ManuallyRouted="false" />
+        <AssociationConnector Association="gcsofcom_sigec_restoModel.FK_Ciudades_Departamentos_DepartamentoId" ManuallyRouted="false" />
+        <AssociationConnector Association="gcsofcom_sigec_restoModel.FK_Empresas_Ciudades_CiudadId" ManuallyRouted="false" />
+        <AssociationConnector Association="gcsofcom_sigec_restoModel.FK_Personas_Ciudades_CiudadId" ManuallyRouted="false" />
+        <AssociationConnector Association="gcsofcom_sigec_restoModel.FK_Clientes_Personas_PersonaId" ManuallyRouted="false" />
+        <AssociationConnector Association="gcsofcom_sigec_restoModel.FK_Facturas_Clientes_ClienteId" ManuallyRouted="false" />
+        <AssociationConnector Association="gcsofcom_sigec_restoModel.FK_FacturasConvenios_Convenios_ConvenioId" ManuallyRouted="false" />
+        <AssociationConnector Association="gcsofcom_sigec_restoModel.FK_Costos_Empleados_EmpleadoId" ManuallyRouted="false" />
+        <AssociationConnector Association="gcsofcom_sigec_restoModel.FK_Costos_Proveedores_ProveedorId" ManuallyRouted="false" />
+        <AssociationConnector Association="gcsofcom_sigec_restoModel.FK_Costos_TiposCostos_TipoCostoId" ManuallyRouted="false" />
+        <AssociationConnector Association="gcsofcom_sigec_restoModel.FK_Creditos_Facturas_FacturaId" ManuallyRouted="false" />
+        <AssociationConnector Association="gcsofcom_sigec_restoModel.FK_Departamentos_Paises_PaisId" ManuallyRouted="false" />
+        <AssociationConnector Association="gcsofcom_sigec_restoModel.FK_DetallesInventariosBodegas_InventariosDetalles_InventarioDetalleId" ManuallyRouted="false" />
+        <AssociationConnector Association="gcsofcom_sigec_restoModel.FK_Empleados_Empresas_EmpresaId" ManuallyRouted="false" />
+        <AssociationConnector Association="gcsofcom_sigec_restoModel.FK_Empleados_Personas_PersonaId" ManuallyRouted="false" />
+        <AssociationConnector Association="gcsofcom_sigec_restoModel.FK_Facturas_Empleados_EmpleadoId" ManuallyRouted="false" />
+        <AssociationConnector Association="gcsofcom_sigec_restoModel.FK_FacturasCompras_Empleados_EmpleadoId" ManuallyRouted="false" />
+        <AssociationConnector Association="gcsofcom_sigec_restoModel.FK_FacturasComprasDetallesPagos_Empleados_EmpleadoId" ManuallyRouted="false" />
+        <AssociationConnector Association="gcsofcom_sigec_restoModel.FK_FacturasDetallesPago_Empleados_EmpleadoId" ManuallyRouted="false" />
+        <AssociationConnector Association="gcsofcom_sigec_restoModel.FK_NotasCreditos_Empleados_EmpleadoId" ManuallyRouted="false" />
+        <AssociationConnector Association="gcsofcom_sigec_restoModel.FK_Proveedores_Empresas_EmpresaId" ManuallyRouted="false" />
+        <AssociationConnector Association="gcsofcom_sigec_restoModel.FK_Estados_TiposEstados_TipoEstadoId" ManuallyRouted="false" />
+        <AssociationConnector Association="gcsofcom_sigec_restoModel.FK_Facturas_Estados_EstadoId" ManuallyRouted="false" />
+        <AssociationConnector Association="gcsofcom_sigec_restoModel.FK_FacturasCompras_Estados_EstadoId" ManuallyRouted="false" />
+        <AssociationConnector Association="gcsofcom_sigec_restoModel.FK_NotasCreditos_Estados_EstadoId" ManuallyRouted="false" />
+        <AssociationConnector Association="gcsofcom_sigec_restoModel.FK_Facturas_NumeracionesFacturas_NumeracionFacturaId" ManuallyRouted="false" />
+        <AssociationConnector Association="gcsofcom_sigec_restoModel.FK_FacturasConvenios_Facturas_FacturaId" ManuallyRouted="false" />
+        <AssociationConnector Association="gcsofcom_sigec_restoModel.FK_FacturasDetalles_Facturas_FacturaId" ManuallyRouted="false" />
+        <AssociationConnector Association="gcsofcom_sigec_restoModel.FK_FacturasDetallesPago_Facturas_FacturaId" ManuallyRouted="false" />
+        <AssociationConnector Association="gcsofcom_sigec_restoModel.FK_NotasCreditos_Facturas_FacturaId" ManuallyRouted="false" />
+        <AssociationConnector Association="gcsofcom_sigec_restoModel.FK_FacturasCompras_Proveedores_ProveedorId" ManuallyRouted="false" />
+        <AssociationConnector Association="gcsofcom_sigec_restoModel.FK_FacturasComprasDetalles_FacturasCompras_FacturaCompraId" ManuallyRouted="false" />
+        <AssociationConnector Association="gcsofcom_sigec_restoModel.FK_FacturasComprasDetallesPagos_FacturasCompras_FacturaCompraId" ManuallyRouted="false" />
+        <AssociationConnector Association="gcsofcom_sigec_restoModel.FK_FacturasComprasDetalles_Insumos_InsumoId" ManuallyRouted="false" />
+        <AssociationConnector Association="gcsofcom_sigec_restoModel.FK_FacturasComprasDetallesPagos_MediosPagos_MedioPagoId" ManuallyRouted="false" />
+        <AssociationConnector Association="gcsofcom_sigec_restoModel.FK_FacturasDetalles_Productos_ProductoId" ManuallyRouted="false" />
+        <AssociationConnector Association="gcsofcom_sigec_restoModel.FK_NotasCreditosDetalles_FacturasDetalles_FacturaDetalleId" ManuallyRouted="false" />
+        <AssociationConnector Association="gcsofcom_sigec_restoModel.FK_FacturasDetallesPago_MediosPagos_MedioPagoId" ManuallyRouted="false" />
+        <AssociationConnector Association="gcsofcom_sigec_restoModel.FK_Formularios_Modulos_ModuloId" ManuallyRouted="false" />
+        <AssociationConnector Association="gcsofcom_sigec_restoModel.FK_FormulariosRoles_Formularios_FormularioId" ManuallyRouted="false" />
+        <AssociationConnector Association="gcsofcom_sigec_restoModel.FK_FormulariosRoles_Roles_RolId" ManuallyRouted="false" />
+        <AssociationConnector Association="gcsofcom_sigec_restoModel.FK_Insumos_UnidadesMedidas_UnidadMedidaId" ManuallyRouted="false" />
+        <AssociationConnector Association="gcsofcom_sigec_restoModel.FK_InsumosProductos_Insumos_InsumoId" ManuallyRouted="false" />
+        <AssociationConnector Association="gcsofcom_sigec_restoModel.FK_InsumosProveedores_Insumos_InsumoId" ManuallyRouted="false" />
+        <AssociationConnector Association="gcsofcom_sigec_restoModel.FK_InventariosDetalles_Insumos_InsumoId" ManuallyRouted="false" />
+        <AssociationConnector Association="gcsofcom_sigec_restoModel.FK_InsumosProductos_Productos_ProductoId" ManuallyRouted="false" />
+        <AssociationConnector Association="gcsofcom_sigec_restoModel.FK_InsumosProductos_UnidadesMedidas_UnidadMedidaId" ManuallyRouted="false" />
+        <AssociationConnector Association="gcsofcom_sigec_restoModel.FK_InsumosProveedores_Proveedores_ProveedorId" ManuallyRouted="false" />
+        <AssociationConnector Association="gcsofcom_sigec_restoModel.FK_InventariosDetalles_Inventarios_InventarioId" ManuallyRouted="false" />
+        <AssociationConnector Association="gcsofcom_sigec_restoModel.FK_NotasCreditos_MediosPagos_MedioPagoId" ManuallyRouted="false" />
+        <AssociationConnector Association="gcsofcom_sigec_restoModel.FK_NotasCreditos_Motivos_MotivoId" ManuallyRouted="false" />
+        <AssociationConnector Association="gcsofcom_sigec_restoModel.FK_NotasCreditosDetalles_NotasCreditos_NotaCreditoId" ManuallyRouted="false" />
+        <AssociationConnector Association="gcsofcom_sigec_restoModel.FK_Notificaciones_Usuarios_UsuarioId" ManuallyRouted="false" />
+        <AssociationConnector Association="gcsofcom_sigec_restoModel.FK_Usuarios_Personas_PersonaId" ManuallyRouted="false" />
+        <AssociationConnector Association="gcsofcom_sigec_restoModel.FK_UsuariosRoles_Roles_RolId" ManuallyRouted="false" />
+        <AssociationConnector Association="gcsofcom_sigec_restoModel.FK_UsuariosRoles_Usuarios_UsuarioId" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="gcsofcom_sigec_restoModel.Salones" Width="1.5" PointX="45.625" PointY="40.875" FillColor="255, 192, 128" />
+        <EntityTypeShape EntityType="gcsofcom_sigec_restoModel.Zonas" Width="1.5" PointX="43.125" PointY="41.25" FillColor="255, 192, 128" />
+        <EntityTypeShape EntityType="gcsofcom_sigec_restoModel.Mesas" Width="1.5" PointX="45.625" PointY="37.125" FillColor="255, 192, 128" />
+        <EntityTypeShape EntityType="gcsofcom_sigec_restoModel.ImpresorasCategorias" Width="2.125" PointX="45.375" PointY="44.625" FillColor="255, 192, 128" />
+        <EntityTypeShape EntityType="gcsofcom_sigec_restoModel.Impresoras" Width="1.5" PointX="45.875" PointY="48.375" FillColor="255, 192, 128" />
+        <EntityTypeShape EntityType="gcsofcom_sigec_restoModel.Propinas" Width="1.5" PointX="69.125" PointY="46.375" FillColor="255, 192, 128" />
+        <EntityTypeShape EntityType="gcsofcom_sigec_restoModel.Ordenes" Width="1.5" PointX="47.875" PointY="37.125" FillColor="255, 192, 128" />
+        <EntityTypeShape EntityType="gcsofcom_sigec_restoModel.OrdenesDetalles" Width="1.875" PointX="46.625" PointY="32.5" FillColor="255, 192, 128" />
+        <AssociationConnector Association="gcsofcom_sigec_restoModel.SalonesZonas" />
+        <AssociationConnector Association="gcsofcom_sigec_restoModel.MesasSalones" />
+        <AssociationConnector Association="gcsofcom_sigec_restoModel.OrdenesMesas" />
+        <AssociationConnector Association="gcsofcom_sigec_restoModel.OrdenesDetallesOrdenes" />
+        <AssociationConnector Association="gcsofcom_sigec_restoModel.ImpresorasCategoriasCategoria" />
+        <AssociationConnector Association="gcsofcom_sigec_restoModel.ImpresorasCategoriasImpresoras" />
+        <AssociationConnector Association="gcsofcom_sigec_restoModel.ImpresorasCategoriasSalones" />
+        <AssociationConnector Association="gcsofcom_sigec_restoModel.OrdenesEmpleado" />
+        <AssociationConnector Association="gcsofcom_sigec_restoModel.OrdenesEstado" />
+        <AssociationConnector Association="gcsofcom_sigec_restoModel.OrdenesDetallesProducto" />
+        <AssociationConnector Association="gcsofcom_sigec_restoModel.OrdenesDetallesEstado" />
+        <EntityTypeShape EntityType="gcsofcom_sigec_restoModel.ModificacionesProductos" Width="1.5" PointX="47.75" PointY="21.875" FillColor="255, 192, 128" />
+        <AssociationConnector Association="gcsofcom_sigec_restoModel.PropinasEmpleado" />
+        <AssociationConnector Association="gcsofcom_sigec_restoModel.PropinasFactura" />
+        <AssociationConnector Association="gcsofcom_sigec_restoModel.PropinasMediosPago" />
+        <AssociationConnector Association="gcsofcom_sigec_restoModel.FacturaOrdenes" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
